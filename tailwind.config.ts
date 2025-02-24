@@ -21,6 +21,7 @@ module.exports = {
       pattern: /h-(\d+)/,
       variants: ['sm', 'md', 'lg'],
     },
+    'no-scrollbar',
   ],
   theme: {
     extend: {
