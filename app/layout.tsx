@@ -18,6 +18,7 @@ export default function RootLayout({
       <body className={``}>
         <Header/>
         <main className={'w-full h-full min-h-[calc(100dvh-54px)] '}>
+          <div id="portal-root"></div>
             {children}
         </main>
       </body>

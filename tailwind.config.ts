@@ -53,6 +53,8 @@ module.exports = {
         'gray-scale-blue-300': '#8a929e',
         'gray-scale-blue-400': '#c3c9ce',
         'gray-scale-blue-500': '#e4e8ed',
+        'light-yellow': '#F4F1DE',
+        'wedding-red' : '#C4282D'
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
