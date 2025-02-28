@@ -5,8 +5,8 @@ import {menuItems} from "../_data/menuItems";
 
 function Header({}) {
     return (
-        <header className="w-full h-54 bg-white">
-            <nav className="w-full h-full">
+        <header className="w-full  h-54  flex justify-center bg-background-gray-light fixed top-0">
+            <nav className="w-full max-w-760 bg-white h-full">
                 <ul className="flex w-full h-full overflow-x-auto whitespace-nowrap px-12 no-scrollbar">
                     {menuItems.map(({ label, onClick }) => (
                         <HeaderItem

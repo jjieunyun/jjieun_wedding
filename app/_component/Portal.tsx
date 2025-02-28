@@ -10,6 +10,7 @@ function Portal({
                     customStyles = {},
                     useOverlay = true,
                     useTransition = true,
+                    onClose
                 }:{
     isOpen: boolean;
     children: React.ReactNode;
@@ -17,6 +18,7 @@ function Portal({
     customStyles?: React.CSSProperties;
     useOverlay?: boolean;
     useTransition?: boolean;
+    onClose?: () => void;
 }) {
     const [visible, setVisible] = useState(false);
     const [mounted, setMounted] = useState(false);
@@ -38,6 +40,23 @@ function Portal({
             return () => clearTimeout(timeoutId);
         }
     }, [isOpen, useTransition]);
+
+    useEffect(() => {
+        setMounted(true);
+
+        // 모달이 열렸을 때 스크롤 막기
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+
+        // 컴포넌트 언마운트 시 스크롤 복구
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
+
 
     if (!mounted) {
         return null;
@@ -72,8 +91,8 @@ function Portal({
     };
 
     return ReactDOM.createPortal(
-        <div
-            style={{
+        <div onClick={onClose}
+             style={{
                 opacity: isOpen ? 1 : 0,
                 visibility: visible ? 'visible' : 'hidden',
                 transition: useTransition
@@ -91,6 +110,7 @@ function Portal({
                 ...containerStyles,
             }}>
             <div
+                onClick={(e) => e.stopPropagation()}
                 style={{
                     transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
                     opacity: isOpen ? 1 : 0,

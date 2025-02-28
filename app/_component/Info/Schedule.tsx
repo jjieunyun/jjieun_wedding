@@ -1,7 +1,7 @@
 import React from 'react';
 import IcHeart from '@image/ic-heart.svg';
 import Image from "next/image";
-import DDayCounter from "../DDayCounter";
+import DDayCounter from "./DDayCounter";
 
 const dayLabels = ['일', '월', '화', '수', '목', '금', '토'];
 

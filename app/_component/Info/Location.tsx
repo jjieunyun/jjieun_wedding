@@ -69,7 +69,7 @@ function Location() {
                     <p className="text-[#C4282D] text-14 font-semibold">복사</p>
                 </div>
             </div>
-            <Map className="mb-47"/>
+            <Map className="mb-47 naver-map"/>
             <div className="flex justify-between px-48 mb-24">
                 {LinkData.map(item => (
                     <LinkBox key={item.label} icon={item.src} label={item.label} onClick={item.onClick}/>
@@ -79,7 +79,7 @@ function Location() {
                 <button onClick={handleOpenPortal}
                     className={'w-full h-58 bg-[#C4282D] text-white text-20 font-semibold'}>교통 안내</button>
             </div>
-            <Portal isOpen={isPortalOpen}>
+            <Portal isOpen={isPortalOpen} onClose={handleClosePortal}>
                 <LocationModalContent onClose={handleClosePortal}/>
             </Portal>
 
