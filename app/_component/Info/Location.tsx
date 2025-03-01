@@ -1,5 +1,6 @@
 import React from 'react';
 import useClipboard from "../../_hook/useClipboard";
+import {copyToClipboard} from "../../_utils/copyToClipboard";
 import Map from "./Map";
 import IconNaver from '@image/IconNaver.png';
 import IconKakao from '@image/IconKakao.png';
@@ -8,6 +9,7 @@ import Image, {StaticImageData} from 'next/image';
 import usePortal from "../../_hook/usePortal";
 import Portal from "../Portal";
 import LocationModalContent from "./LocationModalContent";
+import Button from "./Button";
 
 const ADDRESS = "부산 연제구 거제동 1299";
 
@@ -51,7 +53,6 @@ function openLink(appUrl: string, webUrl: string) {
 }
 
 function Location() {
-    const {copyToClipboard} = useClipboard();
     const {isPortalOpen, handleOpenPortal, handleClosePortal} = usePortal();
 
     return (
@@ -76,8 +77,7 @@ function Location() {
                 ))}
             </div>
             <div className={'w-full h-full px-24'}>
-                <button onClick={handleOpenPortal}
-                    className={'w-full h-58 bg-[#C4282D] text-white text-20 font-semibold'}>교통 안내</button>
+                <Button onClick={handleOpenPortal}>교통 안내</Button>
             </div>
             <Portal isOpen={isPortalOpen} onClose={handleClosePortal}>
                 <LocationModalContent onClose={handleClosePortal}/>

@@ -23,7 +23,7 @@ const Account = () => {
     };
 
     return (
-        <section className={'w-full h-full px-48'}>
+        <section className={'w-full h-full px-48 pb-60'}>
             <p className="text-32 text-center font-semibold leading-[120%] mb-16">
                 마음 전하실 곳
             </p>
@@ -96,7 +96,7 @@ const NameTag = ({pre, name}:{
 
 const AccountInfo = ({name, bank, account, hasBorder}: { name: string | React.ReactNode; bank: string; account: string, hasBorder: boolean }) => {
     const handleCopy = () => {
-        navigator.clipboard.writeText(account);
+        navigator.clipboard.writeText(bank+account);
     };
 
     return (
@@ -107,7 +107,7 @@ const AccountInfo = ({name, bank, account, hasBorder}: { name: string | React.Re
                     {bank} {account}
                 </p>
             </div>
-            <button onClick={handleCopy} className="text-14 text-wedding-red ">
+            <button onClick={handleCopy} className="text-14 ">
                 계좌 복사
             </button>
         </div>
