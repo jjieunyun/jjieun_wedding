@@ -15,7 +15,7 @@ const calendarData = [
 
 function Schedule() {
     return (
-        <section className="mt-40 pb-114 p-24">
+        <section className=" pb-114 px-24 pt-40 bg-[#FAFAFA]">
             <article>
                 <p className="text-32 font-semibold text-center mb-12">2025.4.12</p>
                 <p className="font-300 mb-8 text-center">토요일 낮 12시 20분에 뵐게요!</p>

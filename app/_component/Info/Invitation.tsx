@@ -5,7 +5,8 @@ import IcRibbon from '@image/ic-ribbon.svg';
 
 function Invitation({}) {
     return (
-        <article className={'w-full h-[563px]'}>
+        <article className={'w-full '}>
+            <Picture/>
            <Message/>
         </article>
     );
@@ -15,8 +16,8 @@ export default Invitation;
 
 const Message = () => {
     return (
-        <div className={'w-full h-full flex flex-col items-center bg-[#F5F1DC]'}>
-            <div className={'my-35'}>
+        <div className={'w-full h-[calc(100dvh-54px)]  flex flex-col items-center bg-[#F5F1DC]'}>
+            <div className={'my-35 flex flex-col items-center'}>
                 <Image src={IcRibbon} alt={'IcRibbon'} className={''}/>
                 <p className={'text-center'}> 소중한 분들을 초대합니다.</p>
             </div>
@@ -41,5 +42,5 @@ const Message = () => {
 }
 
 const Picture = () => {
-    return <Image src={InfoMain} alt={'InfoMain'}/>
+    return <div className={'w-full h-[calc(100dvh-54px)] bg-[#161618] flex items-center'}><Image src={InfoMain} alt={'InfoMain'}/></div>
 }

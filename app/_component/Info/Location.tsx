@@ -56,7 +56,7 @@ function Location() {
     const {isPortalOpen, handleOpenPortal, handleClosePortal} = usePortal();
 
     return (
-        <section className="w-full h-full">
+        <section className="w-full h-full bg-[#FAFAFA] pb-40">
             <div className="mb-16 px-24 cursor-pointer">
                 <p className="text-32 text-center font-semibold leading-[120%] mb-16">
                     아시아드시티<br/>
