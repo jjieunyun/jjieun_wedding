@@ -8,7 +8,7 @@ import { copyToClipboard } from "../../_utils/copyToClipboard";
 
 function Thanks({ }) {
     useEffect(() => {
-        if (typeof window !== "undefined" && window.Kakao) {
+        if (window.Kakao) {
             const { Kakao } = window;
             if (!Kakao.isInitialized()) {
                 Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);

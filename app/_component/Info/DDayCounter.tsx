@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 
@@ -40,13 +40,36 @@ function DDayCounter() {
         return () => clearInterval(timer);
     }, []);
 
+    const hours = String(timeLeft.hours).padStart(2, '0');
+    const minutes = String(timeLeft.minutes).padStart(2, '0');
+    const seconds = String(timeLeft.seconds).padStart(2, '0');
+
     return (
         <div className="text-center">
-            <div className="text-2xl">
-                <span>{timeLeft.days}일 </span>
-                <span>{String(timeLeft.hours).padStart(2, '0')}시간 </span>
-                <span>{String(timeLeft.minutes).padStart(2, '0')}분 </span>
-                <span>{String(timeLeft.seconds).padStart(2, '0')}초</span>
+            <div className="text-wedding-red">
+                <div className={'p-8'}>
+                    <span className={'text-48'}>D-{timeLeft.days} </span>
+                </div>
+                <div className={'flex justify-center'}>
+                    <div>
+                        <div className={'text-32 font-600 leading-[92%]'}>{hours}</div>
+                        <div>hour</div>
+                    </div>
+                    <div className={'px-24'}>
+                        :
+                    </div>
+                    <div>
+                        <div className={'text-32 font-600 leading-[92%]'}>{minutes}</div>
+                        <div>min</div>
+                    </div>
+                    <div className={'px-24'}>
+                        :
+                    </div>
+                    <div>
+                        <div className={'text-32 font-600 leading-[92%]'}>{seconds}</div>
+                        <div>sec</div>
+                    </div>
+                </div>
             </div>
         </div>
     );

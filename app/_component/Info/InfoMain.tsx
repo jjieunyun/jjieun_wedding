@@ -10,7 +10,7 @@ import Notice from "./Notice";
 function InfoMain({}) {
 
     return (
-        <section className={'w-full h-full'}>
+        <section className={'w-full h-full relative'}>
             <Script
                 src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ltrbth8yh6`}
                 strategy="beforeInteractive"
@@ -24,14 +24,19 @@ function InfoMain({}) {
                     }
                 }}
             />
-            <Invitation/>
-            <Schedule/>
-            <Location/>
-            <Account/>
-            <Notice/>
-            <Thanks/>
+            <div className={' relative'}>
+                <Invitation/>
+            </div>
+            <div className={'relative'}>
+                <Schedule/>
+                <Location/>
+                <Account/>
+                <Notice/>
+                <Thanks/>
+            </div>
         </section>
     );
 }
 
 export default InfoMain;
+

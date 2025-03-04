@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import test from "../../../public/image/fa-solid_map-marker.svg";
 
 function Map({className = ''}: {className?: string}) {
     const mapElement = useRef<HTMLDivElement>(null);
@@ -10,7 +11,7 @@ function Map({className = ''}: {className?: string}) {
         if (!mapElement.current || !window.naver) return;
 
         const mapOptions = {
-            center: new window.naver.maps.LatLng(35.190103, 129.058361), // 서울 시청 좌표
+            center: new window.naver.maps.LatLng(35.190103, 129.058361), // 지도 중심좌표
             zoom: 14,
         };
 
@@ -20,7 +21,12 @@ function Map({className = ''}: {className?: string}) {
         new window.naver.maps.Marker({
             position: new window.naver.maps.LatLng(35.190103, 129.058361),
             map,
-            title: "서울 시청",
+            icon: {
+                url: "/image/fa-solid_map-marker.svg", // import한 SVG 경로를 url로 전달
+                size: new window.naver.maps.Size(27, 36),
+                scaledSize: new window.naver.maps.Size(27, 36),
+            },
+            title: "아시아드 웨딩홀",
         });
     }, []);
 

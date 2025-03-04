@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./_component/Header";
+import Bottom from "./_component/Bottom";
+
 
 
 export const metadata: Metadata = {
@@ -17,10 +19,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={``}>
         <Header/>
-        <main className={'w-full h-full  mt-54 '}>
+        <main className={'w-full h-[calc(100dvh-50px)]  mt-54 '}>
           <div id="portal-root"></div>
             {children}
         </main>
+      <Bottom/>
       </body>
     </html>
   );
