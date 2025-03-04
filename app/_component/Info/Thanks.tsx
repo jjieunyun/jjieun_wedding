@@ -18,7 +18,6 @@ function Thanks({ }) {
     }, []);
 
     const shareUrl = "https://www.jieun-donghun-250412.today/";
-    const defaultDescription = "저희의 결혼을 축하해 주셔서 감사합니다! 💕";
     const imageUrl = "https://res.cloudinary.com/dlizycik0/image/upload/jjieun_wedding_poster.jpg";
 
     const handleKakaoShare = () => {
@@ -58,34 +57,39 @@ function Thanks({ }) {
     };
 
     return (
-        <section className="w-full h-full relative">
-            <Image src={thanksTo} alt="thanksTo" />
-            <div className="w-full text-center leading-[140%] text-light-yellow absolute top-57">
-                저희의 새로운 시작을
-                <br />
-                축하해주시는 모든 분들께
-                <br />
-                진심으로 감사드립니다.
-                <br />
-                행복하게 잘 살겠습니다.
-            </div>
-            <article className="pt-40 pb-24 w-full h-full bg-[#0E0E13] px-24 flex gap-x-16">
-                {/* 카카오 공유하기 버튼 */}
-                <Button onClick={handleKakaoShare}>
-                    <div className="flex items-center gap-x-8">
-                        <Image src={icMessage} alt="icMessage" />
-                        <span className="text-16">카카오 공유하기</span>
+        <section className="w-full h-full  relative">
+            <div className={'h-full min-h-[calc(100vh-54px)] flex items-center pb-50 bg-[#0E0E13] relative'}>
+                <div className={''}>
+                    <Image src={thanksTo} alt="thanksTo" />
+                    <div className="w-full text-center leading-[140%] text-light-yellow absolute top-57">
+                        저희의 새로운 시작을
+                        <br />
+                        축하해주시는 모든 분들께
+                        <br />
+                        진심으로 감사드립니다.
+                        <br />
+                        행복하게 잘 살겠습니다.
                     </div>
-                </Button>
+                    <article className="pt-40 pb-24 w-full h-full bg-[#0E0E13] px-24 flex gap-x-16">
+                        {/* 카카오 공유하기 버튼 */}
+                        <Button onClick={handleKakaoShare}>
+                            <div className="flex items-center gap-x-8">
+                                <Image src={icMessage} alt="icMessage" />
+                                <span className="text-16">카카오 공유하기</span>
+                            </div>
+                        </Button>
 
-                {/* 링크 복사하기 버튼 */}
-                <Button onClick={handleCopyUrl}>
-                    <div className="flex items-center gap-x-8">
-                        <Image src={icShare} alt="icShare" />
-                        <span className="text-16">링크 복사하기</span>
-                    </div>
-                </Button>
-            </article>
+                        {/* 링크 복사하기 버튼 */}
+                        <Button onClick={handleCopyUrl}>
+                            <div className="flex items-center gap-x-8">
+                                <Image src={icShare} alt="icShare" />
+                                <span className="text-16">링크 복사하기</span>
+                            </div>
+                        </Button>
+                    </article>
+                </div>
+            </div>
+
         </section>
     );
 }
