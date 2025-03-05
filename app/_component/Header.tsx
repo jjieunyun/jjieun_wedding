@@ -2,21 +2,35 @@
 
 import React from 'react';
 import {menuItems} from "../_data/menuItems";
+import {useTheme} from "../_context/ThemeContext";
 
-function Header({theme}: { theme: 'light' | 'dark' }) {
+function Header({ theme }: { theme: 'light' | 'dark' }) {
+    const { activeSection } = useTheme();
+
+    console.log(activeSection);
+
     return (
-        <header id={'header'} className="w-full  h-54  flex justify-center bg-background-gray-light fixed top-0 z-[21]">
-            <nav className={`w-full max-w-470  h-full ${theme === 'light' ? 'bg-white' : 'bg-[#161618]'}`}>
+        <header id="header" className="w-full h-54 flex justify-center bg-background-gray-light fixed top-0 z-[21]">
+            <nav className={`w-full max-w-470 h-full ${theme === 'light' ? 'bg-white' : 'bg-[#161618]'}`}>
                 <ul className="flex w-full h-full overflow-x-auto whitespace-nowrap px-12 no-scrollbar">
-                    {menuItems.map(({label, onClick}) => (
-                        <HeaderItem
-                            theme={theme}
-                            key={label}
-                            label={label}
-                            onClick={onClick}
-                            isActive={label === '모시는글'}
-                        />
-                    ))}
+                    {menuItems.map(({ label, id, onClick }) => {
+                        const isActive =
+                            activeSection !== null
+                                ? Array.isArray(id)
+                                    ? id.includes(activeSection)
+                                    : activeSection === id
+                                : false;
+
+                        return (
+                            <HeaderItem
+                                theme={theme}
+                                key={label}
+                                label={label}
+                                onClick={onClick}
+                                isActive={isActive}
+                            />
+                        );
+                    })}
                 </ul>
             </nav>
         </header>

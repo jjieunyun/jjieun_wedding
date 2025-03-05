@@ -9,7 +9,7 @@ import Notice from "./Notice";
 import {useTheme} from "../../_context/ThemeContext";
 
 function InfoMain() {
-    const {theme, setTheme} = useTheme();
+    const { setTheme, setActiveSection: setActiveContext} = useTheme();
     const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
     const [activeSection, setActiveSection] = useState<string | null>(null);
 
@@ -18,6 +18,7 @@ function InfoMain() {
             sectionRefs.current[componentName] = el;
         }
     }, []);
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -50,7 +51,7 @@ function InfoMain() {
             const scheduleSection = sectionRefs.current["Schedule"];
             const isScheduleHidden =
                 scheduleSection && scheduleSection.getBoundingClientRect().top >= window.innerHeight;
-
+            setActiveContext(activeSection);
 
 
             if (activeSection === "Invitation" && isScheduleHidden) {
