@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef, useState, useCallback} from "react";
 import Invitation from "./Invitation";
 import Schedule from "./Schedule";
 import Location from "./Location";
@@ -6,48 +6,70 @@ import Script from "next/script";
 import Account from "./Account";
 import Thanks from "./Thanks";
 import Notice from "./Notice";
-import { useTheme } from "../../_context/ThemeContext";
+import {useTheme} from "../../_context/ThemeContext";
 
-function InfoMain({}) {
-    const { theme, setTheme } = useTheme();
+function InfoMain() {
+    const {theme, setTheme} = useTheme();
+    const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+    const [activeSection, setActiveSection] = useState<string | null>(null);
 
-    // 각 컴포넌트를 감싸는 div에 연결할 ref 생성
-    const invitationRef = useRef(null);
-    const scheduleRef = useRef(null);
-    const locationRef = useRef(null);
-    const accountRef = useRef(null);
-    const noticeRef = useRef(null);
-    const thanksRef = useRef(null);
+    const setRef = useCallback((componentName: string) => (el: HTMLDivElement | null) => {
+        if (el) {
+            sectionRefs.current[componentName] = el;
+        }
+    }, []);
 
     useEffect(() => {
-        // 뷰포트 상단 기준 54px에 해당하는 rootMargin 설정
-        const options = {
-            root: null,
-            rootMargin: '-54px 0px 0px 0px', // top에서 54px 오프셋 적용
-            threshold: 1,
-        };
+        const handleScroll = () => {
+            let newActiveSection: string | null = null;
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                // 요소가 intersecting 될 때 (즉, rootMargin 영역에 들어올 때)
-                if (entry.isIntersecting) {
-                    // data-component attribute로 컴포넌트 이름 출력
-                    console.log(entry.target.getAttribute('data-component'));
+            Object.entries(sectionRefs.current).forEach(([componentName, section]) => {
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 54 && rect.bottom > 54) {
+                        newActiveSection = componentName;
+                    }
                 }
             });
-        }, options);
 
-        // 각 ref가 존재하면 관찰 시작
-        if (invitationRef.current) observer.observe(invitationRef.current);
-        if (scheduleRef.current) observer.observe(scheduleRef.current);
-        if (locationRef.current) observer.observe(locationRef.current);
-        if (accountRef.current) observer.observe(accountRef.current);
-        if (noticeRef.current) observer.observe(noticeRef.current);
-        if (thanksRef.current) observer.observe(thanksRef.current);
+            if (newActiveSection !== activeSection) {
+                setActiveSection(newActiveSection);
+            }
+        };
 
-        // 컴포넌트 언마운트 시 observer 해제
-        return () => observer.disconnect();
-    }, []);
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // 초기 실행
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [activeSection]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scheduleSection = sectionRefs.current["Schedule"];
+            const isScheduleHidden =
+                scheduleSection && scheduleSection.getBoundingClientRect().top >= window.innerHeight;
+
+
+
+            if (activeSection === "Invitation" && isScheduleHidden) {
+                setTheme("dark");
+            } else if (activeSection === "Thanks") {
+                setTheme("dark");
+            } else {
+                setTheme("light");
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // 초기 실행
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [activeSection]);
+
 
     return (
         <section className="w-full h-full relative">
@@ -65,34 +87,34 @@ function InfoMain({}) {
                 }}
             />
             {/* Invitation 컴포넌트 */}
-            <div
-                data-component="Invitation"
-                ref={invitationRef}
-                className="relative h-[2000px] bg-background-gray-light"
-            >
-                <Invitation />
+            <div ref={setRef("Invitation")} data-component="Invitation"
+                 className="relative h-[2000px] bg-background-gray-light">
+                <Invitation/>
             </div>
             <div className="relative">
                 {/* Schedule 컴포넌트 */}
-                <div data-component="Schedule" ref={scheduleRef}>
-                    <Schedule />
+                <div ref={setRef("Schedule")} data-component="Schedule">
+                    <Schedule/>
                 </div>
                 {/* Location 컴포넌트 */}
-                <div data-component="Location" ref={locationRef}>
-                    <Location />
+                <div ref={setRef("Location")} data-component="Location">
+                    <Location/>
                 </div>
                 {/* Account 컴포넌트 */}
-                <div data-component="Account" ref={accountRef}>
-                    <Account />
+                <div ref={setRef("Account")} data-component="Account">
+                    <Account/>
                 </div>
                 {/* Notice 컴포넌트 */}
-                <div data-component="Notice" ref={noticeRef}>
-                    <Notice />
+                <div ref={setRef("Notice")} data-component="Notice">
+                    <Notice/>
                 </div>
                 {/* Thanks 컴포넌트 */}
-                <div data-component="Thanks" ref={thanksRef}>
-                    <Thanks />
+                <div ref={setRef("Thanks")} data-component="Thanks">
+                    <Thanks/>
                 </div>
+            </div>
+            <div className="fixed top-0 left-0 p-4 bg-white shadow-md">
+                현재 보이는 섹션: {activeSection || "없음"}
             </div>
         </section>
     );
