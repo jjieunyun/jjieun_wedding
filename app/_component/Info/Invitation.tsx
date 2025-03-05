@@ -38,7 +38,7 @@ const Message = ({ className = '' }) => {
             initial={{ rotateY: 90, opacity: 0 }}
             animate={{ rotateY: 0, opacity: 1 }}
             exit={{ rotateY: -90, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             className={`w-full  h-full bg-[#161618] flex items-center ${className}`}
         >
             <div className={'w-470  h-563 flex flex-col items-center bg-[#F5F1DC]'}>
@@ -73,7 +73,7 @@ const Picture = ({ className = '' }) => {
             initial={{ rotateY: -90, opacity: 0 }}
             animate={{ rotateY: 0, opacity: 1 }}
             exit={{ rotateY: 90, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             className={`w-full h-full bg-[#161618] flex items-center ${className}`}
         >
             <Image src={InfoMain} alt={'InfoMain'} className={' h-563 object-contain'} />
