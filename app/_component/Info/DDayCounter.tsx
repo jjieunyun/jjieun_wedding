@@ -51,7 +51,7 @@ function DDayCounter() {
     const seconds = String(timeLeft.seconds).padStart(2, '0');
 
     return (
-        <div className="text-center">
+        <div className="text-center pb-20">
             <div className="text-wedding-red">
                 <div className={'p-8'}>
                     <span className={'text-48'}>D-{timeLeft.days} </span>

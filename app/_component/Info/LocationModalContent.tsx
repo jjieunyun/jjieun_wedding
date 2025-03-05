@@ -74,7 +74,7 @@ function LocationModalContent({ onClose }: { onClose: () => void }) {
                         <ul className="list-disc list-inside space-y-6 pl-4">
                             <li>
                                 <span className="-ml-4">
-                                    5분 간격으로 <span className="font-semibold text-wedding-red">셔틀버스</span> 운행 <br/>
+                                    5분 간격으로 <span className="font-bold">셔틀버스</span> 운행 <br/>
                                     <span className={'ml-12'}>(종합운동장역 ↔ 아시아드웨딩홀)</span>
                                 </span>
                             </li>
@@ -99,7 +99,7 @@ export default LocationModalContent;
 /* 섹션 제목 (자동차, 버스, 지하철 등) */
 const SubTitle = ({ title }: { title: string }) => {
     return (
-        <div className="text-center text-18 font-semibold mb-8">
+        <div className="text-center text-18 font-semibold mb-8 text-wedding-red">
             {title}
         </div>
     );

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import test from "../../../public/image/fa-solid_map-marker.svg";
 
 function Map({className = ''}: {className?: string}) {
     const mapElement = useRef<HTMLDivElement>(null);
@@ -27,7 +26,10 @@ function Map({className = ''}: {className?: string}) {
                 scaledSize: new window.naver.maps.Size(27, 36),
             },
             title: "아시아드 웨딩홀",
+            animation:  window.naver.maps.Animation.BOUNCE
         });
+
+
     }, []);
 
     return (

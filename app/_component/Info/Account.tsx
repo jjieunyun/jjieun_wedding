@@ -55,9 +55,8 @@ const Account = () => {
                         openIcon={IcHeart}
                         closeIcon={IcHeartEmpty}
                     >
-                        <AccountInfo name={<NameTag pre={'아버지'} name={'윤영철'}/>} bank="농협" account="1234567980" hasBorder={true}/>
-                        <AccountInfo name={<NameTag pre={'어머니'} name={'윤영철'}/>}bank="농협" account="1234567980" hasBorder={true}/>
-                        <AccountInfo name={<NameTag pre={'아버지'} name={'윤영철'}/>} bank="농협" account="1234567980" hasBorder={false}/>
+                        <AccountInfo name={<NameTag pre={'아버지'} name={'신옥주'}/>} bank="부산은행" account="163-12-005092-7" hasBorder={true}/>
+                        <AccountInfo name={<NameTag pre={'어머니'} name={'박정희'}/>}bank="하나은행" account="308-910296-79207" hasBorder={false}/>
                     </AccordionSection>
                 </div>
 
@@ -70,9 +69,8 @@ const Account = () => {
                         openIcon={IcHeart}
                         closeIcon={IcHeartEmpty}
                     >
-                        <AccountInfo name={<NameTag pre={'아버지'} name={'윤영철'}/>} bank="농협" account="1234567980" hasBorder={true}/>
-                        <AccountInfo name={<NameTag pre={'아버지'} name={'윤영철'}/>} bank="농협" account="1234567980" hasBorder={false}/>
-                        <AccountInfo name={<NameTag pre={'아버지'} name={'윤영철'}/>} bank="농협" account="1234567980" hasBorder={false}/>
+                        <AccountInfo name={<NameTag pre={'아버지'} name={'윤영철'}/>} bank="새마을금고" account="1318-09-005947-5" hasBorder={true}/>
+                        <AccountInfo name={<NameTag pre={'아버지'} name={'김명화'}/>} bank="신한은행" account="100-306-713534" hasBorder={false}/>
                     </AccordionSection>
                 </div>
             </div>
