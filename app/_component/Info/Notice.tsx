@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function Notice({}) {
     return (
-       <section className={'w-full h-full py-40 bg-[#FAFAFA]'}>
+       <section className={'w-full h-full pt-80 pb-40 bg-[#FAFAFA]'}>
            <p className="text-32 text-center font-semibold leading-[120%] mb-16 ]">
                안내 사항
            </p>

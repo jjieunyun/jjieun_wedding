@@ -9,9 +9,9 @@ import Notice from "./Notice";
 import {useTheme} from "../../_context/ThemeContext";
 
 function InfoMain() {
-    const { setTheme, setActiveSection: setActiveContext} = useTheme();
+    const {theme, setTheme, setActiveSection, activeSection} = useTheme();
     const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-    const [activeSection, setActiveSection] = useState<string | null>(null);
+    const [activeView, setActiveView] = useState<string | null>(null);
 
     const setRef = useCallback((componentName: string) => (el: HTMLDivElement | null) => {
         if (el) {
@@ -33,8 +33,8 @@ function InfoMain() {
                 }
             });
 
-            if (newActiveSection !== activeSection) {
-                setActiveSection(newActiveSection);
+            if (newActiveSection !== activeView) {
+                setActiveView(newActiveSection);
             }
         };
 
@@ -44,19 +44,20 @@ function InfoMain() {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, [activeSection]);
+    }, [activeView]);
 
     useEffect(() => {
         const handleScroll = () => {
             const scheduleSection = sectionRefs.current["Schedule"];
             const isScheduleHidden =
                 scheduleSection && scheduleSection.getBoundingClientRect().top >= window.innerHeight;
-            setActiveContext(activeSection);
+            setActiveSection(activeView);
 
 
-            if (activeSection === "Invitation" && isScheduleHidden) {
+
+            if (activeView === "Invitation" && isScheduleHidden) {
                 setTheme("dark");
-            } else if (activeSection === "Thanks") {
+            } else if (activeView === "Thanks") {
                 setTheme("dark");
             } else {
                 setTheme("light");
@@ -69,7 +70,7 @@ function InfoMain() {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, [activeSection]);
+    }, [activeView]);
 
 
     return (
@@ -115,7 +116,7 @@ function InfoMain() {
                 </div>
             </div>
             <div className="fixed top-0 left-0 p-4 bg-white shadow-md">
-                현재 보이는 섹션: {activeSection || "없음"}
+                현재 보이는 섹션: {activeView || "없음"}
             </div>
         </section>
     );

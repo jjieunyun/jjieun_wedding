@@ -23,7 +23,7 @@ const Account = () => {
     };
 
     return (
-        <section className={'w-full h-full px-48 pt-40 pb-60 bg-[#FAFAFA]'}>
+        <section className={'w-full h-full px-48 pt-80 bg-[#FAFAFA]'}>
             <p className="text-32 text-center font-semibold leading-[120%] mb-16">
                 마음 전하실 곳
             </p>

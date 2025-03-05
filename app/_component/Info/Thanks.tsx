@@ -52,12 +52,11 @@ function Thanks({ }) {
     };
 
     const handleCopyUrl = async () => {
-        console.log("https://www.jieun-donghun-250412.today/");
         await copyToClipboard("https://www.jieun-donghun-250412.today/");
     };
 
     return (
-        <section className="w-full h-full  relative">
+        <section className="w-full h-full  relative pt-40 bg-[#FAFAFA]">
             <div className={'h-full min-h-[calc(100vh-54px)] flex items-center pb-50 bg-[#0E0E13] relative'}>
                 <div className={''}>
                     <Image src={thanksTo} alt="thanksTo" />
