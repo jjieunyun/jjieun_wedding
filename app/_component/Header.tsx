@@ -11,7 +11,7 @@ function Header({ theme }: { theme: 'light' | 'dark' }) {
         <header id="header" className="w-full h-54 flex justify-center bg-background-gray-light fixed top-0 z-[21]">
             <nav className={`w-full max-w-470 h-full ${theme === 'light' ? 'bg-white' : 'bg-[#161618]'}`}>
                 <ul className="flex w-full h-full overflow-x-auto whitespace-nowrap px-12 no-scrollbar">
-                    {menuItems.map(({ label, id, onClick }) => {
+                    {menuItems.map(({ label, id }) => {
                         const isActive =
                             activeSection !== null
                                 ? Array.isArray(id)
@@ -27,8 +27,6 @@ function Header({ theme }: { theme: 'light' | 'dark' }) {
                             if (targetElement) {
                                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                             }
-                            // 기존에 정의된 onClick이 있다면 호출 (필요한 경우)
-                            if (onClick) onClick();
                         };
 
                         return (

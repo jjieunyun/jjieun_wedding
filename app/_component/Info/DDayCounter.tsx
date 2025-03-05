@@ -9,6 +9,7 @@ dayjs.extend(duration);
 const targetDate = dayjs('2025-04-12T12:20:00');
 
 function DDayCounter() {
+    const [mounted, setMounted] = useState(false);
     const calculateTimeLeft = () => {
         const now = dayjs();
         const diff = targetDate.diff(now);
@@ -35,12 +36,15 @@ function DDayCounter() {
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
     useEffect(() => {
+        setMounted(true);
         const timer = setInterval(() => {
             setTimeLeft(calculateTimeLeft());
         }, 1000);
 
         return () => clearInterval(timer);
     }, []);
+
+    if (!mounted) return null; // 클라이언트에서 마운트되기 전엔 렌더링하지 않음
 
     const hours = String(timeLeft.hours).padStart(2, '0');
     const minutes = String(timeLeft.minutes).padStart(2, '0');
