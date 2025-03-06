@@ -50,13 +50,13 @@ const Message = ({className = ''}) => {
             transition={{duration: 0.25}}
             className={`w-full  h-full bg-[#F5F1DC] flex items-center ${className}`}
         >
-            <div className={'w-470  h-563 flex flex-col items-center bg-[#F5F1DC] justify-center'}>
-                <div className={'mb-35 flex flex-col items-center'}>
+            <div className={'w-470  h-563 flex flex-col items-center bg-[#F5F1DC] justify-center font-paperlogy'}>
+                <div className={'mb-42 flex flex-col items-center'}>
                     <Image src={IcRibbon} alt={'IcRibbon'} className={''}/>
                     <p className={'text-center'}> 소중한 분들을 초대합니다.</p>
                 </div>
 
-                <div className={'text-center text-18 font-light mb-38'}>
+                <div className={'text-center text-19 font-light mb-42 font-hakgyoansim'}>
                     <div className={'leading-[160%] mb-24'}>
                         5년이라는 시간 속에서 <br/>
                         서로에게 가장 소중한 사람이 되었습니다.<br/>
@@ -70,9 +70,9 @@ const Message = ({className = ''}) => {
                 </div>
                 <div className={'leading-[160%] mb-24'}>
                     <div className={'text-14'}><span className={'font-semibold text-16'}>신옥주 · 박정희</span> 의 장남 <span
-                        className={'font-semibold text-16'}> 동헌</span></div>
+                        className={'font-semibold text-16'}>&nbsp;&nbsp;동헌</span></div>
                     <div className={'text-14'}><span className={'font-semibold text-16'}>윤영철 · 김명화</span> 의 장녀 <span
-                        className={'font-semibold text-16'}> 지은</span></div>
+                        className={'font-semibold text-16'}>&nbsp;&nbsp;지은</span></div>
 
                 </div>
                 <button onClick={handleOpenPortal}

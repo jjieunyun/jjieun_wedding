@@ -6,10 +6,10 @@ function LocationModalContent({ onClose }: { onClose: () => void }) {
 
             {/* 스크롤 가능한 콘텐츠 영역 */}
             <div className="flex-1 overflow-y-auto px-16 py-24 no-scrollbar">
-                <p className="text-center text-24 font-semibold mb-16">교통 안내</p>
+                <p className="text-center text-24 font-semibold mb-16">- 교통 안내 -</p>
 
                 {/* 자동차 섹션 */}
-                <div className="mt-16">
+                <div className="mt-16]">
                     <SubTitle title="자동차" />
                     <Content>
                         <ul className="list-disc list-inside space-y-6 pl-4">
@@ -83,10 +83,8 @@ function LocationModalContent({ onClose }: { onClose: () => void }) {
                 </div>
             </div>
 
-            <div onClick={onClose} className="w-full bg-light-yellow p-16 flex justify-center border-t sticky bottom-0">
-                <button
-
-                    className=" text-18 font-bold underline-offset-4 underline">
+            <div onClick={onClose} className="w-full bg-light-yellow p-16 flex justify-center sticky bottom-0">
+                <button className=" text-18 font-bold underline-offset-4 underline">
                     닫기
                 </button>
             </div>

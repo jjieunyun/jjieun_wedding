@@ -51,7 +51,7 @@ function DDayCounter() {
     const seconds = String(timeLeft.seconds).padStart(2, '0');
 
     return (
-        <div className="text-center pb-20">
+        <div className="text-center py-16 pb-20">
             <div className="text-wedding-red">
                 <div className={'p-8'}>
                     <span className={'text-48'}>D-{timeLeft.days} </span>
@@ -59,21 +59,21 @@ function DDayCounter() {
                 <div className={'flex justify-center'}>
                     <div>
                         <div className={'text-32 font-600 leading-[92%]'}>{hours}</div>
-                        <div>hour</div>
+                        <div className={'font-[250] mt-2'}>hour</div>
                     </div>
                     <div className={'px-24'}>
                         :
                     </div>
                     <div>
                         <div className={'text-32 font-600 leading-[92%]'}>{minutes}</div>
-                        <div>min</div>
+                        <div className={'font-[250] mt-2'}>min</div>
                     </div>
                     <div className={'px-24'}>
                         :
                     </div>
                     <div>
                         <div className={'text-32 font-600 leading-[92%]'}>{seconds}</div>
-                        <div>sec</div>
+                        <div className={'font-[250] mt-2'}>sec</div>
                     </div>
                 </div>
             </div>

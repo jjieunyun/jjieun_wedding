@@ -26,7 +26,7 @@ function Schedule() {
                 <div className="w-full text-center">
                     <div className="w-full flex">
                         {dayLabels.map((label) => (
-                            <div key={label} className="font-light h-40 w-full flex justify-center items-center">
+                            <div key={label} className="font-[250] h-40 w-full flex justify-center items-center">
                                 {label}
                             </div>
                         ))}
@@ -41,7 +41,7 @@ function Schedule() {
                                     return (
                                         <div
                                             key={dayIndex}
-                                            className={`relative flex justify-center items-center w-full h-40 text-14
+                                            className={`relative flex justify-center items-center font-[500] w-full h-40 text-14
                                                 ${isDayRed ? 'text-[#C4282D]' : ''}
                                                 ${isHighlight ? 'text-white font-bold' : ''}`}
                                         >
@@ -49,7 +49,7 @@ function Schedule() {
                                                 <Image
                                                     src={IcHeart}
                                                     alt="Heart Icon"
-                                                    className="absolute w-33 h-31"
+                                                    className="absolute w-43 h-43"
                                                 />
                                             )}
                                             <span className="relative z-10">{day || ''}</span>

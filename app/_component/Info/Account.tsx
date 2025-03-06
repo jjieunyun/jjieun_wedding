@@ -23,7 +23,7 @@ const Account = () => {
     };
 
     return (
-        <section className={'w-full h-full px-48 pt-80 bg-[#FAFAFA]'}>
+        <section className={'w-full h-full px-24 pt-80 bg-[#FAFAFA]'}>
             <p className="text-32 text-center font-semibold leading-[120%] mb-16">
                 마음 전하실 곳
             </p>
@@ -32,7 +32,7 @@ const Account = () => {
                 <Image src={art} alt="art" width={270} height={270}/>
             </div>
 
-            <div className="text-center leading-[140%] mb-40">
+            <div className="text-center leading-[140%] mb-40 font-hakgyoansim">
                 참석이 어려워
                 <br/>
                 직접 축하를 전하지 못하는 분들을 위해
@@ -85,9 +85,9 @@ const NameTag = ({pre, name}:{
     name: string;
 })=>{
     return (
-        <div>
-            <span>{pre} </span>
-            <span className={'font-semibold'}>{name}</span>
+        <div className={'flex items-center gap-x-12'}>
+            <div className={'w-72 text-left'}>{pre} </div>
+            <div className={'font-semibold text-16'}>{name}</div>
         </div>
     )
 }
@@ -99,11 +99,13 @@ const AccountInfo = ({name, bank, account, hasBorder}: { name: string | React.Re
 
     return (
         <div className={`flex justify-between items-center py-12 ${hasBorder && 'border-b'} `}>
-            <div>
+            <div>z
                 <div className="text-14 mb-4">{name}</div>
-                <p className="text-14">
-                    {bank} {account}
-                </p>
+                <div className={'flex  items-center gap-x-12'}>
+                   <div className={'w-72 text-left'}>{bank}</div>
+                    <div>{account}</div>
+                </div>
+
             </div>
             <button onClick={handleCopy} className="text-14 ">
                 계좌 복사
