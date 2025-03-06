@@ -60,7 +60,7 @@ function Thanks({ }) {
             <div className={'h-full min-h-[calc(100vh-54px)] flex items-center pb-50 bg-[#0E0E13] relative'}>
                 <div className={''}>
                     <Image src={thanksTo} alt="thanksTo" />
-                    <div className="w-full text-center leading-[140%] text-light-yellow absolute top-57">
+                    <div className="w-full text-center leading-[140%] text-light-yellow absolute font-[300] text-20 top-57 font-hakgyoansim">
                         저희의 새로운 시작을
                         <br />
                         축하해주시는 모든 분들께

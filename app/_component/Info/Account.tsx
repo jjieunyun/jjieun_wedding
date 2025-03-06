@@ -99,7 +99,7 @@ const AccountInfo = ({name, bank, account, hasBorder}: { name: string | React.Re
 
     return (
         <div className={`flex justify-between items-center py-12 ${hasBorder && 'border-b'} `}>
-            <div>z
+            <div>
                 <div className="text-14 mb-4">{name}</div>
                 <div className={'flex  items-center gap-x-12'}>
                    <div className={'w-72 text-left'}>{bank}</div>
@@ -107,7 +107,7 @@ const AccountInfo = ({name, bank, account, hasBorder}: { name: string | React.Re
                 </div>
 
             </div>
-            <button onClick={handleCopy} className="text-14 ">
+            <button onClick={handleCopy} className="text-12">
                 계좌 복사
             </button>
         </div>
