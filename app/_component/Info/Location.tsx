@@ -40,17 +40,6 @@ const LinkData = [
     },
 ];
 
-function openLink(appUrl: string, webUrl: string) {
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-        window.location.href = appUrl;
-        setTimeout(() => {
-            window.location.href = webUrl;
-        }, 500);
-    } else {
-        window.open(webUrl, '_blank');
-    }
-}
 
 function Location() {
     const {isPortalOpen, handleOpenPortal, handleClosePortal} = usePortal();

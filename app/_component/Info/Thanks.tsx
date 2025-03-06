@@ -18,7 +18,7 @@ function Thanks({ }) {
     }, []);
 
     const shareUrl = "https://www.jieun-donghun-250412.today/";
-    const imageUrl = "https://res.cloudinary.com/dlizycik0/image/upload/jjieun_wedding_poster.jpg";
+    const imageUrl = "https://res.cloudinary.com/dlizycik0/image/upload/kakao_poster.jpg";
 
     const handleKakaoShare = () => {
         if (typeof window !== "undefined") {
