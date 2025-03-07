@@ -77,7 +77,6 @@ function InfoMain() {
         <section className="w-full h-full relative">
             <Script
                 src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_CLIENT_KEY}`}
-                strategy="afterInteractive"
             />
             <Script
                 src="https://developers.kakao.com/sdk/js/kakao.js"

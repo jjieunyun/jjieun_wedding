@@ -11,11 +11,16 @@ const MainLetter: React.FC = () => {
     const {setActivePage} = useActivePage();
 
     useEffect(() => {
-        const timer = setInterval(() => {
-            setStep((prevStep) => (prevStep < 3 ? prevStep + 1 : prevStep));
-        }, 1000);
+        // 2초 후 setInterval 실행
+        const delayTimer = setTimeout(() => {
+            const interval = setInterval(() => {
+                setStep((prevStep) => (prevStep < 3 ? prevStep + 1 : prevStep));
+            }, 1000);
 
-        return () => clearInterval(timer);
+            return () => clearInterval(interval);
+        }, 1500);
+
+        return () => clearTimeout(delayTimer);
     }, []);
 
     const renderImage = () => {
@@ -44,10 +49,9 @@ const MainLetter: React.FC = () => {
             <div className={'w-full h-250 flex items-center justify-center'}>
                 {
                     step === 0 && <div className={'flex flex-col items-center'}>
-                      <div className={'text-[#98CCE6] text-70 font-rawrote text-center mb-40'}>
+                      <div className={'text-[#98CCE6] text-70 font-rawrote text-center mb-40 animate-bounce'}>
                         You’ve got<br/>the message!
                       </div>
-                      <Image src={arrow} alt={'arrow '} width={40} height={40}/>
                     </div>
                 }
                 {
@@ -61,7 +65,10 @@ const MainLetter: React.FC = () => {
                     )
                 }
             </div>
-            {renderImage()}
+            <div className={'px-36'}>
+                {renderImage()}
+            </div>
+
         </section>
     );
 };

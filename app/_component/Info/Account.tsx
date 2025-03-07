@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,useMemo} from 'react';
 import art from '@image/art.png';
 import Image, {StaticImageData} from 'next/image';
 import CustomCollapse from '../CustomCollapse';
@@ -9,11 +9,9 @@ import IcHeart from '@image/ic-heart.png';
 
 import couple1 from '@image/couple_1.png';
 import couple2 from '@image/couple_2.png';
-import couple3 from '@image/couple_3.png';
 import couple4 from '@image/couple_4.png';
 import couple5 from '@image/couple_5.png';
 
-const coupleImages = [couple1, couple2, couple4, couple5];
 
 const Account = () => {
     // 각각의 아코디언 상태를 독립적으로 관리하는 상태 객체
@@ -22,6 +20,16 @@ const Account = () => {
         bride: false,
     });
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [step, setStep] = useState(0);
+    const coupleImages = useMemo(() => [couple1, couple2, couple4, couple5], []);
+
+    useEffect(() => {
+
+        coupleImages.forEach((img) => {
+            const preloadImg = new window.Image();
+            preloadImg.src = img.src;
+        });
+    }, [coupleImages]);
 
     // 특정 섹션의 열림/닫힘을 토글
     const toggleSection = (section: string) => {
@@ -33,7 +41,7 @@ const Account = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % coupleImages.length);
+            setStep((prevStep) => (prevStep + 1) % coupleImages.length);
         }, 1000); // 1초마다 변경
 
         return () => clearInterval(interval); // 컴포넌트 언마운트 시 정리
@@ -47,10 +55,11 @@ const Account = () => {
 
             <div className="flex justify-center mb-16">
                 <Image
-                    src={coupleImages[currentImageIndex]}
+                    src={coupleImages[step]}
                     alt="couple"
                     width={270}
                     height={270}
+                    priority
                 />
             </div>
 

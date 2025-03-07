@@ -5,6 +5,7 @@ import React, { useEffect, useRef } from "react";
 function Map({className = ''}: {className?: string}) {
     const mapElement = useRef<HTMLDivElement>(null);
 
+    console.log(mapElement)
 
     useEffect(() => {
         if (!mapElement.current || !window.naver) return;

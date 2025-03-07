@@ -52,7 +52,7 @@ const Message = ({className = ''}) => {
         >
             <div className={'w-470  h-563 flex flex-col items-center bg-[#F5F1DC] justify-center font-paperlogy'}>
                 <div className={'mb-42 flex flex-col items-center'}>
-                    <Image src={IcRibbon} alt={'IcRibbon'} className={''} width={86} height={86}/>
+                    <Image src={IcRibbon} alt={'IcRibbon'} className={''} width={86} height={86} priority={true}/>
                     <p className={'text-center'}> 소중한 분들을 초대합니다.</p>
                 </div>
 
@@ -96,7 +96,7 @@ const Picture = ({className = ''}) => {
             transition={{duration: 0.25}}
             className={`w-full h-full bg-[#161618] flex items-center ${className}`}
         >
-            <Image src={InfoMain} alt={'InfoMain'} className={' h-563 object-contain'}/>
+            <Image src={InfoMain} alt={'InfoMain'} className={' h-563 object-contain'} priority={true}/>
         </motion.div>
     );
 };
