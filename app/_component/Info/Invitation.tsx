@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Image from "next/image";
 import {motion, AnimatePresence} from "framer-motion";
 import InfoMain from '@image/info_main.png';
-import IcRibbon from '@image/ic-ribbon.svg';
+import IcRibbon from '@image/ic-ribbon.png';
 import usePortal from "../../_hook/usePortal";
 import Portal from "../Portal";
 import ContactModalContent from "./ContactModalContent";
@@ -52,7 +52,7 @@ const Message = ({className = ''}) => {
         >
             <div className={'w-470  h-563 flex flex-col items-center bg-[#F5F1DC] justify-center font-paperlogy'}>
                 <div className={'mb-42 flex flex-col items-center'}>
-                    <Image src={IcRibbon} alt={'IcRibbon'} className={''}/>
+                    <Image src={IcRibbon} alt={'IcRibbon'} className={''} width={86} height={86}/>
                     <p className={'text-center'}> 소중한 분들을 초대합니다.</p>
                 </div>
 

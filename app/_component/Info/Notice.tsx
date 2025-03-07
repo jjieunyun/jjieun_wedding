@@ -48,7 +48,9 @@ function Notice({}) {
                 안내 사항
             </p>
             <div className={'flex justify-center mb-40'}>
-                <Image src={bird} alt={'bird'} width={160} height={160}/>
+                <div className="animate-tilt">
+                    <Image src={bird} alt={'bird'} width={160} height={160}/>
+                </div>
             </div>
 
             <div className={'w-full flex justify-center px-24'}>

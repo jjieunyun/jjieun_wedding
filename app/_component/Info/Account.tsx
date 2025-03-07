@@ -1,11 +1,19 @@
 'use client';
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import art from '@image/art.png';
 import Image, {StaticImageData} from 'next/image';
 import CustomCollapse from '../CustomCollapse';
 import IcHeartEmpty from '@image/ic-heart-empty.png';
 import IcHeart from '@image/ic-heart.png';
+
+import couple1 from '@image/couple_1.png';
+import couple2 from '@image/couple_2.png';
+import couple3 from '@image/couple_3.png';
+import couple4 from '@image/couple_4.png';
+import couple5 from '@image/couple_5.png';
+
+const coupleImages = [couple1, couple2, couple4, couple5];
 
 const Account = () => {
     // 각각의 아코디언 상태를 독립적으로 관리하는 상태 객체
@@ -13,6 +21,7 @@ const Account = () => {
         groom: false,
         bride: false,
     });
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     // 특정 섹션의 열림/닫힘을 토글
     const toggleSection = (section: string) => {
@@ -22,6 +31,14 @@ const Account = () => {
         }));
     };
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % coupleImages.length);
+        }, 1000); // 1초마다 변경
+
+        return () => clearInterval(interval); // 컴포넌트 언마운트 시 정리
+    }, []);
+
     return (
         <section className={'w-full h-full px-24 pt-80 bg-[#FAFAFA]'}>
             <p className="text-32 text-center font-semibold leading-[120%] mb-16">
@@ -29,7 +46,12 @@ const Account = () => {
             </p>
 
             <div className="flex justify-center mb-16">
-                <Image src={art} alt="art" width={270} height={270}/>
+                <Image
+                    src={coupleImages[currentImageIndex]}
+                    alt="couple"
+                    width={270}
+                    height={270}
+                />
             </div>
 
             <div className="text-center leading-[140%] mb-40 font-hakgyoansim">
@@ -100,14 +122,14 @@ const AccountInfo = ({name, bank, account, hasBorder}: { name: string | React.Re
     return (
         <div className={`flex justify-between items-center py-12 ${hasBorder && 'border-b'} `}>
             <div>
-                <div className="text-14 mb-4">{name}</div>
-                <div className={'flex  items-center gap-x-12'}>
+                <div className="text-16 mb-8">{name}</div>
+                <div className={'flex  items-center gap-x-12 text-14'}>
                    <div className={'w-72 text-left'}>{bank}</div>
                     <div>{account}</div>
                 </div>
 
             </div>
-            <button onClick={handleCopy} className="text-12">
+            <button onClick={handleCopy} className="text-12 text-wedding-red">
                 계좌 복사
             </button>
         </div>

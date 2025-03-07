@@ -61,6 +61,7 @@ module.exports = {
                 'slide-up': 'slideUp 0.3s ease-out forwards',
                 'slide-down': 'slideDown 0.3s ease-out forwards',
                 'gradientWave': 'gradientWave 3s ease-in-out infinite',
+                tilt: 'tilt 1s ease-in-out infinite'
             },
             keyframes: {
                 slideUp: {
@@ -75,6 +76,11 @@ module.exports = {
                     '0%, 100%': {backgroundPosition: '50% 0%'},
                     '50%': {backgroundPosition: '50% 100%'},
                 },
+                tilt: {
+                    '0%, 100%': {transform: 'rotate(0deg)'},
+                    '33%': {transform: 'rotate(-5deg)'},
+                    '66%': {transform: 'rotate(5deg)'}
+                }
             },
             fontFamily: {
                 paperlogy: "var(--font-paperlogy)",

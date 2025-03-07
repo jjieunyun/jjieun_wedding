@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import thanksTo from "@image/thanksTo.jpeg";
 import Image from "next/image";
 import Button from "./Button";
@@ -7,6 +7,9 @@ import icShare from "@image/ic-share.svg";
 import { copyToClipboard } from "../../_utils/copyToClipboard";
 
 function Thanks({ }) {
+    const [isVisible, setIsVisible] = useState(false);
+    const imageRef = useRef<HTMLDivElement | null>(null);
+
     useEffect(() => {
         if (window.Kakao) {
             const { Kakao } = window;
@@ -15,6 +18,25 @@ function Thanks({ }) {
                 console.log("✅ Kakao SDK 초기화 완료");
             }
         }
+    }, []);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting); // 보이면 true, 사라지면 false
+            },
+            { threshold: 0.8 } // 60% 보일 때 실행
+        );
+
+        if (imageRef.current) {
+            observer.observe(imageRef.current);
+        }
+
+        return () => {
+            if (imageRef.current) {
+                observer.unobserve(imageRef.current);
+            }
+        };
     }, []);
 
     const shareUrl = "https://www.jieun-donghun-250412.today/";
@@ -56,11 +78,17 @@ function Thanks({ }) {
     };
 
     return (
-        <section className="w-full h-full  relative pt-40 bg-[#FAFAFA]">
+        <section className="w-full h-full relative pt-40 bg-[#FAFAFA]">
             <div className={'h-full min-h-[calc(100vh-54px)] flex items-center pb-50 bg-[#0E0E13] relative'}>
-                <div className={''}>
+                <div className={''} ref={imageRef}>
                     <Image src={thanksTo} alt="thanksTo" />
-                    <div className="w-full text-center leading-[140%] text-light-yellow absolute font-[300] text-20 top-57 font-hakgyoansim">
+
+                    {/* 텍스트 애니메이션 */}
+                    <div
+                        className={`w-full text-center leading-[140%] text-light-yellow absolute font-[300] text-20 top-57 font-hakgyoansim
+                        transition-all duration-700 ease-out 
+                        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                    >
                         저희의 새로운 시작을
                         <br />
                         축하해주시는 모든 분들께
@@ -69,6 +97,7 @@ function Thanks({ }) {
                         <br />
                         행복하게 잘 살겠습니다.
                     </div>
+
                     <article className="pt-40 pb-24 w-full h-full bg-[#0E0E13] px-24 flex gap-x-16">
                         {/* 카카오 공유하기 버튼 */}
                         <Button onClick={handleKakaoShare}>
@@ -88,7 +117,6 @@ function Thanks({ }) {
                     </article>
                 </div>
             </div>
-
         </section>
     );
 }
