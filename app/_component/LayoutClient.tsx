@@ -11,7 +11,7 @@ function LayoutClient({children}: { children: React.ReactNode }) {
     const {activePage} = useActivePage()
 
     return (
-        <div className={'w-full bg-red-500'}>
+        <div className={'w-full '}>
             {
                 activePage === 'info' && <Header theme={theme}/>
             }

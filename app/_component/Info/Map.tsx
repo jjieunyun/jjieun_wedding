@@ -33,8 +33,8 @@ function Map({className = ''}: {className?: string}) {
     }, []);
 
     return (
-        <article className={`w-full h-full ${className} `}>
-            <div ref={mapElement} className="w-full h-280" id="map" />
+        <article className={`w-full h-full ${className}`}>
+            <div ref={mapElement} className="w-full h-[280px]" id="map"/>
         </article>
     );
 }
