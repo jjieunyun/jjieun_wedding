@@ -16,7 +16,7 @@ export default function Home() {
     return (
         <main
             className={`w-full ${
-                activePage === "opening" ? "h-screen" : "h-full min-h-[calc(100dvh-54px)]"
+                activePage === "opening" ? "h-full" : "h-full min-h-[calc(100dvh-54px)]"
             } flex justify-center relative`}
         >
             <div className="h-full w-full max-w-470 relative">

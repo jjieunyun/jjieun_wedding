@@ -11,11 +11,11 @@ function LayoutClient({children}: { children: React.ReactNode }) {
     const {activePage} = useActivePage()
 
     return (
-        <div>
+        <div className={'w-full bg-red-500'}>
             {
                 activePage === 'info' && <Header theme={theme}/>
             }
-            <main className={`w-full ${activePage === 'opening' ? 'h-screen' : 'h-[calc(100dvh-50px)] mt-54'}`}>
+            <main className={`w-full ${activePage === 'opening' ? 'h-full' : 'h-[calc(100dvh-50px)] mt-54'}`}>
                 <div id="portal-root"></div>
                 {children}
             </main>
