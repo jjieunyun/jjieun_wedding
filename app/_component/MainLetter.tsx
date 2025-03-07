@@ -27,11 +27,8 @@ const MainLetter: React.FC = () => {
             case 2:
                 return <Image src={letter3} alt="letter3" className="w-full h-auto"/>;
             case 3:
-                return (
-                    <div className="relative">
-                        <Image src={letter3} alt="letter4" className="w-full h-auto" onClick={onClickStart}/>
-                    </div>
-                );
+                return <Image src={letter3} alt="letter4" className="w-full h-auto" onClick={onClickStart}/>
+
             default:
                 return null;
         }
@@ -44,24 +41,26 @@ const MainLetter: React.FC = () => {
     return (
         <section className={'w-full h-[100dvh] bg-[#0E0E13] px-28 flex justify-center items-center flex-col'}>
 
-            {
-                step === 0 && <div className={'flex flex-col items-center'}>
-                <div className={'text-[#98CCE6] text-70 font-rawrote text-center mb-40'}>
-                  You’ve got<br/>the message!
-                </div>
-                <Image src={arrow} alt={'arrow '} width={40} height={40}/>
-              </div>
-            }
-            {
-                step === 3 && (
-                    <div className={'flex flex-col items-center'}>
-                        <div className={'text-[#98CCE6] text-70 font-rawrote text-center mb-40'}>
-                            touch it
-                        </div>
-                        <Image src={arrow} alt={'arrow '} width={40} height={40} className={`mb-24 animate-bounce`}/>
+            <div className={'w-full h-250 flex items-center justify-center'}>
+                {
+                    step === 0 && <div className={'flex flex-col items-center'}>
+                      <div className={'text-[#98CCE6] text-70 font-rawrote text-center mb-40'}>
+                        You’ve got<br/>the message!
+                      </div>
+                      <Image src={arrow} alt={'arrow '} width={40} height={40}/>
                     </div>
-                )
-            }
+                }
+                {
+                    step === 3 && (
+                        <div className={'flex flex-col items-center'}>
+                            <div className={'text-[#98CCE6] text-70 font-rawrote text-center mb-40'}>
+                                touch it
+                            </div>
+                            <Image src={arrow} alt={'arrow '} width={40} height={40} className={`mb-24 animate-bounce`}/>
+                        </div>
+                    )
+                }
+            </div>
             {renderImage()}
         </section>
     );
