@@ -5,6 +5,7 @@ import InfoMain from "./_component/Info/InfoMain";
 import MainLetter from "./_component/MainLetter";
 import { useActivePage } from "./_context/ActivePageContext";
 import Script from "next/script";
+import GalleryMain from "./_component/gallery/GalleryMain";
 
 export default function Home() {
     const { activePage } = useActivePage();
@@ -37,7 +38,7 @@ export default function Home() {
             <div className="h-full w-full max-w-470 relative bg-[#161618]">
                 {activePage === "opening" && isMounted && <MainLetter />}
                 {activePage === "info" && <InfoMain />}
-                {activePage === "gallery" && <div>Gallery</div>}
+                {activePage === "gallery" && <GalleryMain/>}
             </div>
         </main>
     );

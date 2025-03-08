@@ -3,7 +3,7 @@
 import {createContext, useContext, useState, ReactNode} from 'react';
 
 // 테마 타입 정의
-export type ActivePage = 'opening' | 'gallery' | 'info';
+export type ActivePage = 'opening' | 'gallery' | 'info' | null;
 
 interface ActivePageContextType {
     activePage: ActivePage;
@@ -17,7 +17,7 @@ interface ActivePageProviderProps {
 }
 
 export const ActivePageProvider = ({children}: ActivePageProviderProps) => {
-    const [activePage, setActivePage] = useState<ActivePage>(null);
+    const [activePage, setActivePage] = useState<ActivePage>('gallery');
 
     return (
         <ActivePageContext.Provider value={{activePage, setActivePage}}>
