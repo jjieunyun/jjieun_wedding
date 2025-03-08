@@ -55,7 +55,7 @@ function InfoMain() {
 
 
 
-            if (activeView === "Invitation" && isScheduleHidden) {
+            if (activeView === "Invitation" && isScheduleHidden || !activeView) {
                 setTheme("dark");
             } else if (activeView === "Thanks") {
                 setTheme("dark");
@@ -75,18 +75,6 @@ function InfoMain() {
 
     return (
         <section className="w-full h-full relative">
-            <Script
-                src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_CLIENT_KEY}`}
-            />
-            <Script
-                src="https://developers.kakao.com/sdk/js/kakao.js"
-                strategy="afterInteractive"
-                onLoad={() => {
-                    if (window.Kakao && !window.Kakao.isInitialized()) {
-                        window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
-                    }
-                }}
-            />
             {/* Invitation 컴포넌트 */}
             <div ref={setRef("Invitation")} data-component="Invitation"
                  className="relative h-[2000px] bg-background-gray-light">

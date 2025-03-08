@@ -15,7 +15,6 @@ function Thanks({ }) {
             const { Kakao } = window;
             if (!Kakao.isInitialized()) {
                 Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
-                console.log("✅ Kakao SDK 초기화 완료");
             }
         }
     }, []);

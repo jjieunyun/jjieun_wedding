@@ -3,13 +3,14 @@
 import React from 'react';
 import {menuItems} from "../_data/menuItems";
 import {useTheme} from "../_context/ThemeContext";
+import {ActivePage} from "../_context/ActivePageContext";
 
-function Header({ theme }: { theme: 'light' | 'dark' }) {
+function Header({ theme, activePage }: { theme: 'light' | 'dark'; activePage: null | ActivePage }) {
     const { activeSection } = useTheme();
 
     return (
         <header id="header" className="w-full h-54 flex justify-center bg-background-gray-light fixed top-0 z-[21]">
-            <nav className={`w-full max-w-470 h-full ${theme === 'light' ? 'bg-white' : 'bg-[#161618]'}`}>
+            <nav className={`w-full max-w-470 h-full ${activePage === null && 'bg-[#161618]'} ${theme === 'light' ? 'bg-white' : 'bg-[#161618]'}`}>
                 <ul className="flex w-full h-full overflow-x-auto whitespace-nowrap px-12 no-scrollbar">
                     {menuItems.map(({ label, id }) => {
                         const isActive =
