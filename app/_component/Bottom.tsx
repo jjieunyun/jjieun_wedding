@@ -11,14 +11,14 @@ function Bottom({theme = 'dark', activePage, setActivePage}: {
 
     const text = (activePage === 'gallery' ? '예식정보 바로가기' : '갤러리 바로가기');
 
-    console.log(activePage)
-
-    const handleClick = () => {
-        setActivePage((prev) => prev === 'gallery' ? 'info' : 'gallery');
+    const handleClick = ({activePage}:{
+        activePage: ActivePage;
+    }) => {
+        setActivePage(activePage === 'gallery' ? 'info' : 'gallery');
     }
 
     return (
-        <div onClick={handleClick}
+        <div onClick={() => handleClick({activePage})}
             className="w-full  h-50  flex justify-center bg-background-gray-light fixed bottom-0 z-[21] cursor-pointer">
             <div
                 className={`w-full max-w-470  h-full flex justify-center items-center ${activePage === null && 'bg-[#161618]'} ${theme === 'light' ? 'bg-[#E1E1E1] text-[#17171B]' : 'bg-[#343434] text-[#F4F1DE]'}`}>

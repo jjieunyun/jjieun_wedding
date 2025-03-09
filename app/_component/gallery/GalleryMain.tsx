@@ -1,13 +1,14 @@
 import React from 'react';
-import Image from "next/image";
-import titleBanner from '@image/title.png';
 import Intro from "./Intro";
+import Pictures from "./Pictures";
+import Forest from "./Forest";
 
 function GalleryMain({}) {
     return (
-        <section className="w-full h-full min-h-dvh px-48 relative bg-[url('/image/gallery_bg.png')] bg-repeat">
-            <Image src={titleBanner} alt={'titleBanner'} className={'pt-40'}/>
+        <section className="w-full h-[calc(100dvh-50px)] overflow-y-auto overflow-x-hidden no-scrollbar
+          relative">
             <Intro/>
+            <Pictures/>
         </section>
     );
 }
