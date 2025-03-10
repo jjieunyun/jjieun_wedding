@@ -35,3 +35,8 @@ body {
 .naver-map * {
   z-index: 1 !important; /* 모든 자식 요소의 z-index를 낮춥니다. */
 }
+
+
+.swiper-wrapper {
+  align-items: center !important;
+}

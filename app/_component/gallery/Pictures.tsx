@@ -12,21 +12,26 @@ import Swiper from "./Swiper";
 
 
 function Pictures({}) {
-    const {isPortalOpen, handleClosePortal} = usePortal();
+    const {isPortalOpen, handleClosePortal, handleOpenPortal} = usePortal();
     const [selectedPicture, setSelectedPicture] = useState<number | null>(null);
 
     const handleSelectPicture = ({index}: { index: number }) => {
+        handleOpenPortal();
         setSelectedPicture(index);
     }
+
 
     return (
         <section className={`bg-[url('/image/gallery_bg.png')] bg-repeat relative py-50 flex flex-col items-center`}>
             <Image src={paperRip} alt={'paperRip'} className={'absolute -top-34 -left-4'}/>
-            <Studio/>
-            <Forest/>
-            <Sea/>
+            <Forest handleSelectPicture={handleSelectPicture}/>
+            <Sea handleSelectPicture={handleSelectPicture}/>
+            {/*<Studio/>*/}
             <Portal isOpen={isPortalOpen} onClose={handleClosePortal}>
-                <Swiper selectedPicture={selectedPicture}/>
+                <div className={'w-full max-w-470 h-full '}>
+                    <Swiper selectedPicture={selectedPicture} handleClosePortal={handleClosePortal}/>
+                </div>
+
             </Portal>
 
         </section>

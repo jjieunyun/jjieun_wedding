@@ -12,15 +12,15 @@ import titleBanner from "@image/title.png";
 function Intro({}) {
     return (
        <div className={`bg-[url('/image/gallery_bg.png')] bg-repeat px-48 relative flex flex-col items-center`}>
-           <Image src={titleBanner} alt={'titleBanner'} className={'pt-40'}/>
+           <Image src={titleBanner} alt={'titleBanner'} className={'pt-40'} priority={true}/>
            <article className={`w-full relative  flex justify-center pb-140 max-w-320 `}>
                <div>
-                   <Image src={tape} alt={'tape'} width={60} className={'absolute right-10'}/>
-                   <Image src={paper} alt={'paper'} className={'pt-20 w-250'}/>
-                   <Image src={jieun} alt={'jieun'} className={'absolute w-220 -top-40 -left-55'}/>
-                   <Image src={sticker} alt={'sticker'} width={60} className={'absolute -top-20 left-40'}/>
-                   <Image src={donghun} alt={'donghun'} className={'absolute w-220 top-100 -right-40'}/>
-                   <Image src={tape} alt={'tape'} width={60} className={'absolute top-320 left-10'}/>
+                   <Image src={tape} alt={'tape'} width={60} className={'absolute right-10'} priority={true}/>
+                   <Image src={paper} alt={'paper'} className={'pt-20 w-250'} priority={true}/>
+                   <Image src={jieun} alt={'jieun'} className={'absolute w-220 -top-40 -left-55'} priority={true}/>
+                   <Image src={sticker} alt={'sticker'} width={60} className={'absolute -top-20 left-40'} priority={true}/>
+                   <Image src={donghun} alt={'donghun'} className={'absolute w-220 top-100 -right-40'} priority={true}/>
+                   <Image src={tape} alt={'tape'} width={60} className={'absolute top-320 left-10'} priority={true}/>
                </div>
                <div className={'overflow-x-hidden'}>
                    <div className="w-full z-20 font-hakgyoansim absolute left-100 top-70 ">

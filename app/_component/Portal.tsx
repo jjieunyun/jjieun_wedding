@@ -104,7 +104,7 @@ function Portal({
                 zIndex: 40,
                 height: '100dvh',
                 width: '100vw',
-                backgroundColor: useOverlay ? 'rgba(0, 0, 0, 0.48)' : 'transparent',
+                backgroundColor: useOverlay ? 'rgba(0, 0, 0, 0.68)' : 'transparent',
                 outline: 'none',
                 display: 'flex',
                 ...containerStyles,

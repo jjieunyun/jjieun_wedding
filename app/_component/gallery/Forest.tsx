@@ -1,21 +1,54 @@
 import React from 'react';
 import Plot from "./Plot";
-import forest_1 from "@image/gallery/pictures/forest_1.jpeg";
-import forest_2 from "@image/gallery/pictures/forest_2.jpeg";
-import forest_3 from "@image/gallery/pictures/forest_3.jpeg";
-import forest_4 from "@image/gallery/pictures/forest_4.jpeg";
+import { PictureList } from "../../_data/PictureList";
 import Image from "next/image";
 
-function Forest({}) {
+function Forest({handleSelectPicture}:{
+    handleSelectPicture: ({index}: { index: number }) => void
+}) {
+    const forestPictures = PictureList.find(item => item.type === 'forest')?.items || [];
+
     return (
-        <article className={'w-full h-full max-w-390 relative'}>
-           <Plot className={'h-[400px]'}>
-               <Image src={forest_1} alt={'forest_1'} width={250} className={'absolute rotate-[10deg]'}/>
-                <Image src={forest_2} alt={'forest_2'} width={200} className={'absolute -right-30 -rotate-[5deg]  top-170'}/>
-           </Plot>
-            <Plot className={'h-500'}>
-                <Image src={forest_3} alt={'forest_3'} width={220} className={'absolute  top-20 rotate-[5deg]'}/>
-                <Image src={forest_4} alt={'forest_4'} width={200} className={'absolute right-5 top-200 rotate-[3deg] z-10'}/>
+        <article className="w-full h-full max-w-390 relative">
+            <Plot className="h-[400px]">
+                {forestPictures[0] && (
+                    <Image
+                        src={forestPictures[0].src}
+                        alt={forestPictures[0].label}
+                        width={250}
+                        onClick={() => handleSelectPicture({index: forestPictures[0].id})}
+                        className="absolute rotate-[10deg]"
+                    />
+                )}
+                {forestPictures[1] && (
+                    <Image
+                        src={forestPictures[1].src}
+                        alt={forestPictures[1].label}
+                        width={200}
+                        onClick={() => handleSelectPicture({index: forestPictures[1].id})}
+                        className="absolute -right-30 -rotate-[5deg] top-170"
+                    />
+                )}
+            </Plot>
+            <Plot className="h-500">
+                {forestPictures[2] && (
+                    <Image
+                        src={forestPictures[2].src}
+                        alt={forestPictures[2].label}
+                        width={220}
+                        onClick={() => handleSelectPicture({index: forestPictures[2].id})}
+                        className="absolute top-20 rotate-[5deg]"
+                    />
+                )}
+                {forestPictures[3] && (
+                    <Image
+                        src={forestPictures[3].src}
+                        alt={forestPictures[3].label}
+                        width={200}
+                        onClick={() => handleSelectPicture({index: forestPictures[3].id})}
+                        className="absolute right-5 top-200 rotate-[3deg] z-10"
+                    />
+                )}
             </Plot>
         </article>
     );
