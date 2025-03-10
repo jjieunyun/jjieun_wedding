@@ -1,8 +1,10 @@
 import React from 'react';
 
-function Swiper({}) {
+function Swiper({selectedPicture}: {
+    selectedPicture: number | null;
+}) {
     return (
-        <section>
+        <section className={'w-full h-full'}>
 
         </section>
     );

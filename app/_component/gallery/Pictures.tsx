@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, {useState} from 'react';
 import Image from "next/image";
 import paperRip from '@image/gallery/pictures/object/paper_rip.png';
 import Studio from "./Studio";
@@ -13,6 +13,11 @@ import Swiper from "./Swiper";
 
 function Pictures({}) {
     const {isPortalOpen, handleClosePortal} = usePortal();
+    const [selectedPicture, setSelectedPicture] = useState<number | null>(null);
+
+    const handleSelectPicture = ({index}: { index: number }) => {
+        setSelectedPicture(index);
+    }
 
     return (
         <section className={`bg-[url('/image/gallery_bg.png')] bg-repeat relative py-50 flex flex-col items-center`}>
@@ -21,7 +26,7 @@ function Pictures({}) {
             <Forest/>
             <Sea/>
             <Portal isOpen={isPortalOpen} onClose={handleClosePortal}>
-                <Swiper/>
+                <Swiper selectedPicture={selectedPicture}/>
             </Portal>
 
         </section>
