@@ -91,8 +91,7 @@ function Portal({
     };
 
     return ReactDOM.createPortal(
-        <div onClick={onClose}
-             style={{
+        <div style={{
                 opacity: isOpen ? 1 : 0,
                 visibility: visible ? 'visible' : 'hidden',
                 transition: useTransition

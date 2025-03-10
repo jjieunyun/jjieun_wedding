@@ -1,8 +1,6 @@
 import React from 'react';
 import Intro from "./Intro";
 import Pictures from "./Pictures";
-import Forest from "./Forest";
-import Portal from "../Portal";
 
 function GalleryMain({}) {
     return (

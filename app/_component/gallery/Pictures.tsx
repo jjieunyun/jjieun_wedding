@@ -57,7 +57,7 @@ export default Pictures;
 const Info = () => {
     return (
         <article className={'w-full h-full text-center mt-60 flex flex-col items-center relative'}>
-            <div className={'font-rawrote text-28 text-light-yellow absolute -top-30 left-60 -rotate-[15deg]'}
+            <div className={'font-rawrote text-36 text-light-yellow absolute -top-60 left-60 -rotate-[15deg]'}
                style={{ textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000' }}
             >Thank you!</div>
             <p className={'text-20 font-bold mb-6'}>감사합니다.</p>
