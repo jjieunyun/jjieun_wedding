@@ -10,16 +10,16 @@ function LayoutClient({children}: { children: React.ReactNode }) {
     const {theme, setTheme} = useTheme();
     const {activePage, setActivePage} = useActivePage();
 
-    // useEffect(() => {
-    //     if (typeof window !== 'undefined') {
-    //         const visited = localStorage.getItem('jw_visited');
-    //         if (visited) {
-    //             setActivePage('info');
-    //         } else {
-    //             localStorage.setItem('jw_visited', 'true');
-    //         }
-    //     }
-    // }, []);
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const visited = localStorage.getItem('jw_visited');
+            if (visited) {
+                setActivePage('info');
+            } else {
+                localStorage.setItem('jw_visited', 'true');
+            }
+        }
+    }, []);
 
     const openingStyle = "h-full";
     const infoStyle = "h-full min-h-[calc(100dvh-54px)] mt-54";
