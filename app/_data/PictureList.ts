@@ -90,12 +90,12 @@ export const PictureList = [{
             {
                 id: 10,
                 label: 'night_1',
-                src: night_1,
+                src: night_2,
             },
             {
                 id: 11,
                 label: 'night_2',
-                src: night_2,
+                src: night_1,
             }
         ]
     },

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PictureList } from "../../_data/PictureList";
 import { Swiper as SwiperSlider, SwiperSlide } from 'swiper/react';
+import { Swiper as SwiperClass } from 'swiper'; // Swiper 인스턴스 타입 import
 import Image from "next/image";
 import 'swiper/css';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -13,7 +14,8 @@ function Swiper({ selectedPicture, handleClosePortal }: {
     const allPictures = PictureList.flatMap(group => group.items);
     const initialSlideIndex = selectedPicture !== null ? selectedPicture : 0;
     const [currentSlide, setCurrentSlide] = useState(initialSlideIndex);
-    const [swiperInstance, setSwiperInstance] = useState<any>(null);
+    // Swiper 인스턴스의 타입을 명시적으로 지정
+    const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(null);
 
     // selectedPicture 변경 시 slideTo 호출
     useEffect(() => {
@@ -47,7 +49,6 @@ function Swiper({ selectedPicture, handleClosePortal }: {
                 scrollbar={{ draggable: true }}
                 onSwiper={(swiper) => {
                     setSwiperInstance(swiper);
-                    console.log(swiper);
                 }}
                 onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
                 initialSlide={initialSlideIndex}
@@ -85,6 +86,7 @@ function Swiper({ selectedPicture, handleClosePortal }: {
                                 alt="arrow"
                                 width={40}
                                 height={40}
+                                quality={50}
                                 className="rotate-180 w-40 h-40"
                             />
                         </div>

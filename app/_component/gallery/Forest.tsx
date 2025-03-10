@@ -16,6 +16,8 @@ function Forest({handleSelectPicture}:{
                         src={forestPictures[0].src}
                         alt={forestPictures[0].label}
                         width={250}
+                        quality={50}
+                        priority={true}
                         onClick={() => handleSelectPicture({index: forestPictures[0].id})}
                         className="absolute rotate-[10deg]"
                     />
@@ -25,6 +27,8 @@ function Forest({handleSelectPicture}:{
                         src={forestPictures[1].src}
                         alt={forestPictures[1].label}
                         width={200}
+                        quality={50}
+                        priority={true}
                         onClick={() => handleSelectPicture({index: forestPictures[1].id})}
                         className="absolute -right-30 -rotate-[5deg] top-170"
                     />
@@ -36,6 +40,7 @@ function Forest({handleSelectPicture}:{
                         src={forestPictures[2].src}
                         alt={forestPictures[2].label}
                         width={220}
+                        priority={true}
                         onClick={() => handleSelectPicture({index: forestPictures[2].id})}
                         className="absolute top-20 rotate-[5deg]"
                     />
@@ -45,6 +50,8 @@ function Forest({handleSelectPicture}:{
                         src={forestPictures[3].src}
                         alt={forestPictures[3].label}
                         width={200}
+                        quality={50}
+                        priority={true}
                         onClick={() => handleSelectPicture({index: forestPictures[3].id})}
                         className="absolute right-5 top-200 rotate-[3deg] z-10"
                     />
