@@ -27,8 +27,6 @@ function Map({className = ''}: {className?: string}) {
             title: "아시아드 웨딩홀",
             animation:  window.naver.maps.Animation.BOUNCE
         });
-
-
     }, []);
 
     return (

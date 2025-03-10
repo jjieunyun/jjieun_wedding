@@ -9,7 +9,7 @@ import {useActivePage} from "../_context/ActivePageContext";
 function LayoutClient({children}: { children: React.ReactNode }) {
     const {theme, setTheme} = useTheme();
     const {activePage, setActivePage} = useActivePage();
-    //
+
     // useEffect(() => {
     //     if (typeof window !== 'undefined') {
     //         const visited = localStorage.getItem('jw_visited');

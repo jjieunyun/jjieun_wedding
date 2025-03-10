@@ -17,7 +17,7 @@ interface ActivePageProviderProps {
 }
 
 export const ActivePageProvider = ({children}: ActivePageProviderProps) => {
-    const [activePage, setActivePage] = useState<ActivePage>('gallery');
+    const [activePage, setActivePage] = useState<ActivePage>('opening');
 
     return (
         <ActivePageContext.Provider value={{activePage, setActivePage}}>
