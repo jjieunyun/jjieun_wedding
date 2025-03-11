@@ -12,6 +12,11 @@ import Swiper from "./Swiper";
 import More from "./More";
 import Night from "./Night";
 import arrow from '@image/gallery/arrow.png';
+import jieun from "@image/gallery/jieun-2.png";
+import donghun from "@image/gallery/donghun.png";
+import sticker from "@image/gallery/hearts.png";
+import nameTagJ from "@image/gallery/nameTag_jieun.png";
+import nameTagD from "@image/gallery/nameTag_donghun.png";
 
 function Pictures({}) {
     const {isPortalOpen, handleClosePortal, handleOpenPortal} = usePortal();
@@ -28,8 +33,27 @@ function Pictures({}) {
     };
 
     return (
-        <section className="bg-[url('/image/gallery_bg.png')] bg-repeat relative pt-50 pb-0 flex flex-col items-center">
-            <Image src={paperRip} alt="paperRip" className="absolute -top-34 -left-4"/>
+        <section className="bg-[url('/image/gallery_bg.png')] bg-repeat relative pt-90 pb-60 flex flex-col items-center">
+            <div className={`w-full bg-repeat relative flex flex-col items-center h-580`}>
+                <article className={`w-full h-full relative  flex justify-center pb-60 max-w-320 `}>
+                    <div className={' h-300'}>
+                        <Image src={jieun} alt={'jieun'} className={'absolute -left-74 h-380 object-contain '} priority={true}/>
+
+                        <Image src={donghun} alt={'donghun'} className={'absolute -right-65 h-380 object-contain'} priority={true}/>
+                    </div>
+                    <div className={'flex flex-col items-center w-full'}>
+                        <Image src={sticker} alt={'sticker'} width={60} className={'pt-100 top-50 animate-bounce'}
+                               priority={true}/>
+                        <div className={'flex items-center justify-center gap-x-65  pt-[220px]'}>
+                            <Image src={nameTagJ} alt={'nameTag'} width={97} className={''} priority={true}/>
+                            <Image src={nameTagD} alt={'nameTag'} width={97} className={''} priority={true}/>
+                        </div>
+                    </div>
+
+                </article>
+                <Image src={paperRip} alt="paperRip" className="absolute bottom-40 w-full"/>
+            </div>
+
             <Forest handleSelectPicture={handleSelectPicture}/>
             <Sea handleSelectPicture={handleSelectPicture}/>
             {!isOpenMore && <More handleOpenMore={handleOpenMore}/>}

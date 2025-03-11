@@ -19,7 +19,6 @@ const Account = () => {
         groom: false,
         bride: false,
     });
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [step, setStep] = useState(0);
     const coupleImages = useMemo(() => [couple1, couple2, couple4, couple5], []);
 
