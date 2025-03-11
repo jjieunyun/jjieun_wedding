@@ -26,7 +26,7 @@ function Studio({handleSelectPicture}: {
                 <Image src={pictures[1].src} alt={pictures[1].label} width={230}
                        onClick={() => handleSelectPicture({index: pictures[1].id})}
                        className={'absolute -right-40 -rotate-[5deg] top-270 z-[5]'}/>
-                <Image src={bird} alt={'bird'} width={105} className={'absolute right-0 top-150 rotate-[5deg]'}/>
+                <Image src={bird} alt={'bird'} width={105} className={'absolute right-0 top-150 rotate-[5deg] animate-tilt'}/>
                 <Image src={redTape} alt={'redTape'} width={50} className={'absolute right-50 top-250 rotate-[75deg] z-10'}/>
                 <Image src={bluePaper} alt={'bluePaper'} width={250} className={'absolute -left-40 top-220'}/>
             </Plot>

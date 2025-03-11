@@ -92,7 +92,7 @@ const Info = () => {
                 <Image src={svgHeart} alt={'heart'} width={24} />
             </div>
             <p className={'z-10 mt-6 font-light'}>자세한 정보는 <span className={'underline'}>예식정보 바로가기</span>를 눌러주세요</p>
-            <Image src={arrowDown} alt={'arrowDown'} width={40} className={'absolute bottom-4'}/>
+            <Image src={arrowDown} alt={'arrowDown'} width={40} className={'absolute bottom-4 animate-bounce'}/>
         </article>
     )
 }

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import letter1 from '@image/letter-1.png';
 import letter2 from '@image/letter-2.png';
 import letter3 from '@image/letter-3.png';
+import letter4 from '@image/letter_last.png';
 import arrow from '@image/main_arrow.png';
 import Image from "next/image";
 import {useActivePage} from "../_context/ActivePageContext";
@@ -26,13 +27,13 @@ const MainLetter: React.FC = () => {
     const renderImage = () => {
         switch (step) {
             case 0:
-                return <Image src={letter1} alt="letter1" className="w-full h-auto" width={320} height={320}/>;
+                return <Image src={letter1} alt="letter1" className="w-full h-auto animate-tilt" width={320} height={320}/>;
             case 1:
                 return <Image src={letter2} alt="letter2" className="w-full h-auto"/>;
             case 2:
                 return <Image src={letter3} alt="letter3" className="w-full h-auto"/>;
             case 3:
-                return <Image src={letter3} alt="letter4" className="w-full h-auto" onClick={onClickStart}/>
+                return <Image src={letter4} alt="letter4" className="w-full h-auto" onClick={onClickStart}/>
 
             default:
                 return null;
@@ -40,7 +41,7 @@ const MainLetter: React.FC = () => {
     };
 
     const onClickStart = () => {
-        setActivePage('info');
+        setActivePage('gallery');
     }
 
     return (
@@ -49,7 +50,7 @@ const MainLetter: React.FC = () => {
             <div className={'w-full h-250 flex items-center justify-center'}>
                 {
                     step === 0 && <div className={'flex flex-col items-center'}>
-                      <div className={'text-[#98CCE6] text-70 font-rawrote text-center mb-40 animate-bounce'}>
+                      <div className={'text-[#98CCE6] text-70 font-rawrote text-center mb-40 '}>
                         You’ve got<br/>the message!
                       </div>
                     </div>

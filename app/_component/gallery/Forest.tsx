@@ -65,7 +65,7 @@ function Forest({handleSelectPicture}:{
                         className="absolute right-5 top-340 -rotate-[6deg] z-10"
                     />
                 )}
-                <Image src={red} alt={'smile'} quality={90} className="absolute bottom-160 left-20 z-20" width={105}/>
+                <Image src={red} alt={'smile'} quality={90} className="absolute bottom-160 left-20 z-20 animate-tilt" width={105}/>
             </Plot>
         </article>
     );
