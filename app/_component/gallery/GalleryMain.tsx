@@ -1,5 +1,4 @@
 import React from 'react';
-import Intro from "./Intro";
 import Pictures from "./Pictures";
 import Main from "./Main";
 
@@ -8,7 +7,6 @@ function GalleryMain({}) {
         <section className="w-full h-[calc(100dvh-50px)] overflow-y-auto overflow-x-hidden no-scrollbar
           relative">
             <Main/>
-            {/*<Intro/>*/}
             <Pictures/>
         </section>
     );

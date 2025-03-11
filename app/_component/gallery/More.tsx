@@ -9,7 +9,7 @@ function More({handleOpenMore}:{
     return (
         <article className={'flex flex-col items-center'}>
             <Image src={paperRip} alt={'paperRip'} className={'-ml-2'}/>
-            <Image src={more} alt={'more'} width={180} onClick={handleOpenMore}/>
+            <Image src={more} alt={'more'} width={180} onClick={handleOpenMore} className={'animate-tilt mt-40'}/>
         </article>
     );
 }

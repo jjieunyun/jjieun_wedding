@@ -11,12 +11,16 @@ import usePortal from "../../_hook/usePortal";
 import Swiper from "./Swiper";
 import More from "./More";
 import Night from "./Night";
-import arrow from '@image/gallery/arrow.png';
+
 import jieun from "@image/gallery/jieun-2.png";
 import donghun from "@image/gallery/donghun.png";
 import sticker from "@image/gallery/hearts.png";
 import nameTagJ from "@image/gallery/nameTag_jieun.png";
 import nameTagD from "@image/gallery/nameTag_donghun.png";
+import bottomPaper from '@image/gallery/white_paper.png';
+
+import svgHeart from '@image/ic-heart.svg';
+import arrowDown from '@image/gallery/pictures/object/arrow_down.png';
 
 function Pictures({}) {
     const {isPortalOpen, handleClosePortal, handleOpenPortal} = usePortal();
@@ -33,7 +37,7 @@ function Pictures({}) {
     };
 
     return (
-        <section className="bg-[url('/image/gallery_bg.png')] bg-repeat relative pt-90 pb-60 flex flex-col items-center">
+        <section className="bg-[url('/image/gallery_bg.png')] bg-repeat relative pt-90 flex flex-col items-center">
             <div className={`w-full bg-repeat relative flex flex-col items-center h-580`}>
                 <article className={`w-full h-full relative  flex justify-center pb-60 max-w-320 `}>
                     <div className={' h-300'}>
@@ -80,14 +84,15 @@ export default Pictures;
 
 const Info = () => {
     return (
-        <article className={'w-full h-full text-center mt-60 flex flex-col items-center relative'}>
-            <div className={'font-rawrote text-36 text-light-yellow absolute -top-60 left-60 -rotate-[15deg]'}
-               style={{ textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000' }}
-            >Thank you!</div>
-            <p className={'text-20 font-bold mb-6'}>감사합니다.</p>
-            <p>자세한 정보는&nbsp;
-                <span className="bg-light-yellow">예식정보 바로가기</span>를 눌러주세요.</p>
-            <Image src={arrow} alt={'arrow'} height={50}/>
+        <article className={'w-full h-180 text-center mt-60 flex flex-col items-center relative'}>
+            <Image src={bottomPaper} alt={'bottomPaper'} className={'absolute  w-full'}/>
+            <div className={'mt-80 z-10 flex gap-x-8 items-center'}>
+                <Image src={svgHeart} alt={'heart'} width={24} />
+                <p className={'text-20 font-semibold'}>감사합니다!</p>
+                <Image src={svgHeart} alt={'heart'} width={24} />
+            </div>
+            <p className={'z-10 mt-6 font-light'}>자세한 정보는 <span className={'underline'}>예식정보 바로가기</span>를 눌러주세요</p>
+            <Image src={arrowDown} alt={'arrowDown'} width={40} className={'absolute bottom-4'}/>
         </article>
     )
 }
