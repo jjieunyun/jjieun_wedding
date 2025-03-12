@@ -13,7 +13,7 @@ function Main({}) {
     return (
         <section className="bg-[url('/image/gallery/white_bg.png')] bg-repeat relative flex flex-col items-center pt-16 -mb-16">
             <div className="relative w-full overflow-hidden">
-                <Image src={mainFrame} alt="frame" priority={true} className="z-20 w-470 relative " />
+                <Image src={mainFrame} alt="frame" priority={true} width={470} className="z-20 w-470 relative" />
             </div>
             <Image src={green} alt="green" quality={90} className="absolute bottom-140 right-20 z-20" width={100} priority={true} />
             <Image src={bottomBG} alt="bottomBG" className="w-[calc(100%+16px)] h-full -ml-[2px]" priority={true} />
