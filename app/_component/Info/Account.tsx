@@ -6,6 +6,8 @@ import Image, {StaticImageData} from 'next/image';
 import CustomCollapse from '../CustomCollapse';
 import IcHeartEmpty from '@image/ic-heart-empty.png';
 import IcHeart from '@image/ic-heart.png';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import couple1 from '@image/couple_1.png';
 import couple2 from '@image/couple_2.png';
@@ -125,6 +127,19 @@ const NameTag = ({pre, name}:{
 const AccountInfo = ({name, bank, account, hasBorder}: { name: string | React.ReactNode; bank: string; account: string, hasBorder: boolean }) => {
     const handleCopy = () => {
         navigator.clipboard.writeText(bank+account);
+        toast.success("클립보드에 복사되었습니다.", {
+            position: "bottom-center",
+            autoClose: 3000,
+            style: {
+                background: '#F4F1DE',
+                color: '#161618',
+                fontSize: '14px',
+                borderRadius: '24px',
+                padding: '16px',
+                width: '250px',
+                marginBottom: '32px'
+            }
+        });
     };
 
     return (

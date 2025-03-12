@@ -5,6 +5,8 @@ import Button from "./Button";
 import icMessage from "@image/ic-message.svg";
 import icShare from "@image/ic-share.svg";
 import { copyToClipboard } from "../../_utils/copyToClipboard";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Thanks({ }) {
     const [isVisible, setIsVisible] = useState(false);
@@ -74,6 +76,18 @@ function Thanks({ }) {
 
     const handleCopyUrl = async () => {
         await copyToClipboard("https://www.jieun-donghun-250412.today/");
+         toast.success("클립보드에 복사되었습니다.", {
+            position: "bottom-center",
+            autoClose: 3000,
+            style: {
+                fontSize: '14px',
+                borderRadius: '24px',
+                padding: '16px',
+                width: '250px',
+                marginBottom: '32px',
+                background: '#F4F1DE',
+            }
+        });
     };
 
     return (

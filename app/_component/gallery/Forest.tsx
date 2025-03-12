@@ -3,11 +3,10 @@ import Plot from "./Plot";
 import { PictureList } from "../../_data/PictureList";
 import Image from "next/image";
 import greenTape from '@image/gallery/pictures/object/green_tape.png';
-import green from '@image/gallery/pictures/object/green.png';
 import love from '@image/gallery/pictures/object/love_letter.png';
-import smile from '@image/gallery/pictures/object/smile.png';
 import leaf from '@image/gallery/pictures/object/leaf.png';
 import red from '@image/gallery/pictures/object/red_heart.png';
+import click from '@image/gallery/click.png';
 
 function Forest({handleSelectPicture}:{
     handleSelectPicture: ({index}: { index: number }) => void
@@ -17,6 +16,7 @@ function Forest({handleSelectPicture}:{
     return (
         <article className="w-full h-full max-w-390 relative">
             <Plot className="h-[400px]">
+                <Image src={click} alt={'click'}  className={"z-20 absolute left-200 top-50 w-50 filter brightness-0 invert animate-upDown"}/>
                 <Image src={greenTape} alt={'greenTape'} className={'absolute z-20 right-80 -top-10'} width={90} quality={90} priority={true}/>
                 <Image src={leaf} alt={'greenTape'} className={'absolute z-20 -right-40 '} width={140}  priority={true}/>
                 {forestPictures[0] && (
