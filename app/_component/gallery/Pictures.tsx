@@ -46,7 +46,7 @@ function Pictures({}) {
                         <Image src={donghun} alt={'donghun'} className={'absolute -right-65 h-380 object-contain'} priority={true}/>
                     </div>
                     <div className={'flex flex-col items-center w-full'}>
-                        <Image src={sticker} alt={'sticker'} width={60} className={'pt-100 top-50 animate-bounce'}
+                        <Image src={sticker} alt={'sticker'} width={60} className={'pt-100 top-50'}
                                priority={true}/>
                         <div className={'flex items-center justify-center gap-x-65  pt-[220px]'}>
                             <Image src={nameTagJ} alt={'nameTag'} width={97} className={''} priority={true}/>

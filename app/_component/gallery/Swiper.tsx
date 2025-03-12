@@ -6,6 +6,7 @@ import Image from "next/image";
 import 'swiper/css';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import arrow from '@image/design_arrow.png';
+import icClose from '@image/ic-close-with-circle.svg';
 
 function Swiper({ selectedPicture, handleClosePortal }: {
     selectedPicture: number | null;
@@ -39,6 +40,12 @@ function Swiper({ selectedPicture, handleClosePortal }: {
 
     return (
         <section className="w-[100dvw] max-w-[470] relative">
+            <div>
+                <button onClick={handleClosePortal}
+                        className="w-full flex justify-end fixed z-20 right-24 top-24">
+                    <Image src={icClose} alt={'close'} width={36} height={36}/>
+                </button>
+            </div>
             <SwiperSlider
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 loop={true}
@@ -46,7 +53,7 @@ function Swiper({ selectedPicture, handleClosePortal }: {
                 slidesPerView={1}
                 navigation
                 pagination={false}
-                scrollbar={{ draggable: true }}
+                scrollbar={{draggable: true}}
                 onSwiper={(swiper) => {
                     setSwiperInstance(swiper);
                 }}
@@ -60,7 +67,7 @@ function Swiper({ selectedPicture, handleClosePortal }: {
                             <Image
                                 src={picture.src}
                                 alt={picture.label}
-                                style={{ objectFit: 'contain' }}
+                                style={{objectFit: 'contain'}}
                             />
                         </div>
                     </SwiperSlide>
@@ -91,9 +98,7 @@ function Swiper({ selectedPicture, handleClosePortal }: {
                             />
                         </div>
                     </div>
-                    <button onClick={handleClosePortal} className="w-fit h-fit text-14 px-6 py-4 text-light-yellow rounded-6 bg-wedding-red">
-                        닫기
-                    </button>
+
                 </div>
             </SwiperSlider>
         </section>
