@@ -100,7 +100,7 @@ const Account = () => {
                         closeIcon={IcHeartEmpty}
                     >
                         <AccountInfo name={<NameTag pre={'아버지'} name={'윤영철'}/>} bank="새마을금고" account="1318-09-005947-5" hasBorder={true}/>
-                        <AccountInfo name={<NameTag pre={'아버지'} name={'김명화'}/>} bank="신한은행" account="100-306-713534" hasBorder={false}/>
+                        <AccountInfo name={<NameTag pre={'아버지'} name={'어머니'}/>} bank="신한은행" account="100-306-713534" hasBorder={false}/>
                     </AccordionSection>
                 </div>
             </div>

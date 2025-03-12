@@ -4,6 +4,7 @@ import { ThemeProvider } from "./_context/ThemeContext";
 import LayoutClient from "./_component/LayoutClient";
 import localFont from "next/font/local";
 import {ActivePageProvider} from "./_context/ActivePageContext";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
     title: "동헌💗지은, 저희 결혼합니다!",
@@ -58,6 +59,7 @@ export default function RootLayout({
                 <LayoutClient>{children}</LayoutClient>
             </ThemeProvider>
         </ActivePageProvider>
+        <Analytics/>
         </body>
         </html>
     );
