@@ -6,6 +6,7 @@ import letter4 from '@image/letter_last.png';
 import arrow from '@image/main_arrow.png';
 import Image from "next/image";
 import {useActivePage} from "../_context/ActivePageContext";
+import {PictureList} from "../_data/PictureList";
 
 const MainLetter: React.FC = () => {
     const [step, setStep] = useState<number>(0);
@@ -43,6 +44,15 @@ const MainLetter: React.FC = () => {
     const onClickStart = () => {
         setActivePage('gallery');
     }
+
+    useEffect(() => {
+        PictureList.forEach(group => {
+            group.items.forEach(picture => {
+                const img = new window.Image();
+                img.src = typeof picture.src === "string" ? picture.src : picture.src.src;
+            });
+        });
+    }, []);
 
     return (
         <section className={'w-full h-[100dvh] bg-[#0E0E13] px-28 flex justify-center items-center flex-col'}>
