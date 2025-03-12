@@ -2,7 +2,7 @@ import React from 'react';
 
 function LocationModalContent({ onClose }: { onClose: () => void }) {
     return (
-        <section className="w-[calc(100dvw-48px)] max-w-[328px] h-full max-h-[500] flex flex-col bg-light-yellow">
+        <section className="w-[calc(100dvw-48px)] max-w-[328px] h-full max-h-[500px] flex flex-col bg-light-yellow">
 
             {/* 스크롤 가능한 콘텐츠 영역 */}
             <div className="flex-1 overflow-y-auto px-16 py-24 no-scrollbar">
