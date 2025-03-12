@@ -1,5 +1,4 @@
 import React from 'react';
-import useClipboard from "../../_hook/useClipboard";
 import {copyToClipboard} from "../../_utils/copyToClipboard";
 import Map from "./Map";
 import IconNaver from '@image/IconNaver.png';
@@ -10,6 +9,8 @@ import usePortal from "../../_hook/usePortal";
 import Portal from "../Portal";
 import LocationModalContent from "./LocationModalContent";
 import Button from "./Button";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ADDRESS = "부산 연제구 거제동 1299";
 
@@ -41,6 +42,7 @@ const LinkData = [
 ];
 
 
+
 function Location() {
     const {isPortalOpen, handleOpenPortal, handleClosePortal} = usePortal();
 
@@ -52,7 +54,22 @@ function Location() {
                     마리아주 홀
                 </p>
                 <div
-                    onClick={() => copyToClipboard(ADDRESS)}
+                    onClick={() => {
+                        copyToClipboard(ADDRESS);
+                        toast.success("클립보드에 복사되었습니다.", {
+                            position: "bottom-center",
+                            autoClose: 3000,
+                            style: {
+                                background: '#F4F1DE',
+                                color: '#161618',
+                                fontSize: '14px',
+                                borderRadius: '24px',
+                                padding: '16px',
+                                width: '250px',
+                                marginBottom: '32px'
+                            }
+                        });
+                    }}
                     className="h-42 flex items-center rounded-8 border-1 px-24 justify-between"
                 >
                     <p>{ADDRESS}</p>
@@ -71,7 +88,18 @@ function Location() {
             <Portal isOpen={isPortalOpen} onClose={handleClosePortal}>
                 <LocationModalContent onClose={handleClosePortal}/>
             </Portal>
-
+                <ToastContainer
+                    position="bottom-center"
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick={false}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                    closeButton={false}
+                />
         </section>
     );
 }

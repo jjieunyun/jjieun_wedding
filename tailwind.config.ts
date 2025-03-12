@@ -61,7 +61,8 @@ module.exports = {
                 'slide-up': 'slideUp 0.3s ease-out forwards',
                 'slide-down': 'slideDown 0.3s ease-out forwards',
                 'gradientWave': 'gradientWave 3s ease-in-out infinite',
-                tilt: 'tilt 1s ease-in-out infinite'
+                tilt: 'tilt 1s ease-in-out infinite',
+                upDown: 'upDown 800ms infinite alternate',
             },
             keyframes: {
                 slideUp: {
@@ -80,7 +81,11 @@ module.exports = {
                     '0%, 100%': {transform: 'rotate(0deg)'},
                     '33%': {transform: 'rotate(-5deg)'},
                     '66%': {transform: 'rotate(5deg)'}
-                }
+                },
+                upDown: {
+                    '0%': { transform: 'translateY(0)' },
+                    '100%': { transform: 'translateY(10px)' },
+                },
             },
             fontFamily: {
                 paperlogy: "var(--font-paperlogy)",
