@@ -43,7 +43,10 @@ function Swiper({ selectedPicture, handleClosePortal }: {
             <div>
                 <button onClick={handleClosePortal}
                         className="w-full flex justify-end fixed z-20 right-24 top-24">
-                    <Image src={icClose} alt={'close'} width={36} height={36}/>
+                    <div className={'w-30 h-30 bg-[#161618] opacity-50 rounded-full flex justify-center items-center'}>
+                        <Image src={icClose} alt={'close'} width={30} height={30}/>
+                    </div>
+
                 </button>
             </div>
             <SwiperSlider
