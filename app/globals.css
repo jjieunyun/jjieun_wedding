@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #f2f3f6;
   --foreground: #171717;
 }
 
@@ -14,8 +14,29 @@
   }
 }
 
+
 body {
-  color: var(--foreground);
+  color: #171717;
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.naver-map * {
+  z-index: 1 !important; /* 모든 자식 요소의 z-index를 낮춥니다. */
+}
+
+
+.swiper-wrapper {
+  align-items: center !important;
 }
